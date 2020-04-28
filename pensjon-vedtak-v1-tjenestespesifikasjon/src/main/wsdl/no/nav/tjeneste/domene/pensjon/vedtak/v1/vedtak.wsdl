@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="vedtak" targetNamespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v1" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/vedtak/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v1" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/meldinger">
+      <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="finnVedtakIdOgSakId">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:finnVedtakIdOgSakIdRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="finnVedtakIdOgSakIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:finnVedtakIdOgSakIdResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ping">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="plassholder" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="plassholder" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="finnVedtakIdOgSakIdRequest">
+    <wsdl:part element="tns:finnVedtakIdOgSakId" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="finnVedtakIdOgSakIdResponse">
+    <wsdl:part element="tns:finnVedtakIdOgSakIdResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="pingRequest">
+    <wsdl:part element="tns:ping" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part element="tns:pingResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Vedtak_v1">
+    <wsdl:operation name="finnVedtakIdOgSakId">
+      <wsdl:documentation>&lt;p&gt;Operasjonen finner siste gjeldende vedtakId, og tilhørende sakId, for en gitt ytelse.&lt;/p&gt; </wsdl:documentation>
+      <wsdl:input message="tns:finnVedtakIdOgSakIdRequest"/>
+      <wsdl:output message="tns:finnVedtakIdOgSakIdResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingRequest"/>
+      <wsdl:output message="tns:pingResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

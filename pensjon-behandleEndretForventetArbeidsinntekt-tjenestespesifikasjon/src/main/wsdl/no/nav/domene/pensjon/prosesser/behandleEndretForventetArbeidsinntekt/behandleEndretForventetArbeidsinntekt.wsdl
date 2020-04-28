@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="behandleEndretForventetArbeidsinntekt" targetNamespace="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/v2" xmlns:tns="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/v2" xmlns:meldinger="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/meldinger/v2">
+      <xsd:import namespace="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/meldinger/v2" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="behandleEndretForventetArbeidsinntekt">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:BehandleEndretForventetArbeidsinntektRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="behandleEndretForventetArbeidsinntektResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="plassholder" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="behandleEndretForventetArbeidsinntektOgSendResultat">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:BehandleEndretForventetArbeidsinntektOgSendResultatRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="behandleEndretForventetArbeidsinntektOgSendResultatResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:BehandleEndretForventetArbeidsinntektOgSendResultatResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="behandleEndretForventetArbeidsinntektRequest">
+    <wsdl:part element="tns:behandleEndretForventetArbeidsinntekt" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="behandleEndretForventetArbeidsinntektResponse">
+    <wsdl:part element="tns:behandleEndretForventetArbeidsinntektResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="behandleEndretForventetArbeidsinntektOgSendResultatRequest">
+    <wsdl:part element="tns:behandleEndretForventetArbeidsinntektOgSendResultat" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="behandleEndretForventetArbeidsinntektOgSendResultatResponse">
+    <wsdl:part element="tns:behandleEndretForventetArbeidsinntektOgSendResultatResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="BehandleEndretForventetArbeidsinntekt_v2">
+    <wsdl:operation name="behandleEndretForventetArbeidsinntekt">
+      <wsdl:documentation> </wsdl:documentation>
+      <wsdl:input message="tns:behandleEndretForventetArbeidsinntektRequest"/>
+      <wsdl:output message="tns:behandleEndretForventetArbeidsinntektResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="behandleEndretForventetArbeidsinntektOgSendResultat">
+      <wsdl:documentation> </wsdl:documentation>
+      <wsdl:input message="tns:behandleEndretForventetArbeidsinntektOgSendResultatRequest"/>
+      <wsdl:output message="tns:behandleEndretForventetArbeidsinntektOgSendResultatResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

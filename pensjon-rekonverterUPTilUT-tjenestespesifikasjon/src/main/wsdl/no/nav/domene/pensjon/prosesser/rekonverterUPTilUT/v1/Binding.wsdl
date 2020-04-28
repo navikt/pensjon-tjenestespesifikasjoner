@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="Binding" targetNamespace="http://no.nav/domene/pensjon/prosesser/rekonverterUPTilUT/v1/Binding/" xmlns:rekonverterUPTilUT="http://nav.no/domene/pensjon/prosesser/rekonverterUPTilUT/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://no.nav/domene/pensjon/prosesser/rekonverterUPTilUT/v1/Binding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../rekonverterUPTilUT.wsdl" namespace="http://nav.no/domene/pensjon/prosesser/rekonverterUPTilUT/v1"/>
+  <wsdl:binding name="RekonverterUPTilUTBinding" type="rekonverterUPTilUT:RekonverterUPTilUT">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="rekonverterUPTilUT">
+      <soap:operation soapAction="http://no.nav/domene/pensjon/prosesser/rekonverterUPTilUT/v1/Binding/rekonverterUPTilUT/"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RekonverterUPTilUT">
+    <wsdl:port binding="tns:RekonverterUPTilUTBinding" name="RekonverterUPTilUTPort">
+      <soap:address location="http://no.nav/domene/pensjon/prosesser/rekonverterUPTilUT/v1/Binding/RekonverterUPTilUT/RekonverterUPTilUTPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

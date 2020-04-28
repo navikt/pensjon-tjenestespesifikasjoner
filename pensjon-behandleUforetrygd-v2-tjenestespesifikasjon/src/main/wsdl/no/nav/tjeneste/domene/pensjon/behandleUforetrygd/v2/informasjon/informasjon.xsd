@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/informasjon" xmlns:informasjon="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/informasjon">
+  <xsd:complexType name="Inntektsgrunnlag">
+    <xsd:sequence>
+      <xsd:element name="fomDato" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Dato inntektsgrunnlaget er gyldig fra og med.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="tomDato" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Dato inntektsgrunnlaget er gyldig til og med.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="belop" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Inntektsgrunnlagets størrelse angitt i kroner.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="bruk" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>Angir om inntektsgrunnlaget brukes som grunnlag på kravet eller ikke.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="kopiertFraGammeltKrav" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>Flagg som angir om inntektsgrunnlaget er kopiert fra et gammelt krav og ikke skal slettes når nytt grunnlag kopieres inn fra inntektsregisteret.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="inntektHendelse" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Kode som angir hendelsestype for inntekt, som representerer inntektens status i Inntektskomponenten. De ulike gyldige kodene er definert i K_INNTEKT_HENDELSE_T</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="inntektType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Kode som angir type inntekt. De ulike gyldige kodene er definert i K_INNTEKT_T.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="registerKilde" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Registerets kilde til informasjonen. De ulike gyldige kodene er definert i T_K_KILDE_INNT_T</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="endringstidspunkt" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Endringstidspunkt i Inntektskomponenten </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="grunnlagKilde" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Angir kilden for inntektsgrunnlaget i pensjon. De ulike gyldige kodene er definert i T_K_GRUNNLAG_KILDE</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="registerOpprettetAv" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Registerets informasjon om hvem som sist endret informasjonen.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="Belop">
+    <xsd:restriction base="xsd:int"/>
+  </xsd:simpleType>
+  <xsd:complexType name="FaktiskeInntekter">
+    <xsd:sequence>
+      <xsd:element name="faktiskeInntekterHittilIAr" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Faktiske inntekter for tre siste måneder rapportert til A-ordningen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="faktiskeInntekter3SisteManeder" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Faktiske inntekter hittil i år rapportert til A-ordningen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="inntektType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Kode som angir type inntekt. De ulike gyldige kodene er definert i K_INNTEKT_T</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

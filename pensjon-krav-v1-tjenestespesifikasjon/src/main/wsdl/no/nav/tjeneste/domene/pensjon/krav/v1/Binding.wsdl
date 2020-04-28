@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Binding" targetNamespace="http://nav.no/tjeneste/domene/pensjon/krav/v1/Binding" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/krav/v1/Binding" xmlns:wsdl_1="http://nav.no/tjeneste/domene/pensjon/krav/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="krav.wsdl" namespace="http://nav.no/tjeneste/domene/pensjon/krav/v1"/>
+  <wsdl:binding name="Krav_v1Binding" type="wsdl_1:Krav_v1">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="vurderKontrollpunkter">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/krav/v1/BindingvurderKontrollpunkter/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="vurderKontrollpunkterFault">
+        <soap:fault name="vurderKontrollpunkterFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="vurderKontrollpunkterFault1">
+        <soap:fault name="vurderKontrollpunkterFault1" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="vurderKontrollpunkterFault2">
+        <soap:fault name="vurderKontrollpunkterFault2" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/krav/v1/Bindingping/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fullforKontroll">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/krav/v1/BindingfullforKontroll/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Krav_v1">
+    <wsdl:port binding="tns:Krav_v1Binding" name="Krav_v1Port">
+      <soap:address location="http://nav.no/tjeneste/domene/pensjon/krav/v1/BindingKrav_v1/Krav_v1Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

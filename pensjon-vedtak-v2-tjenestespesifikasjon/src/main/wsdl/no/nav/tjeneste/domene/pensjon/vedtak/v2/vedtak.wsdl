@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="vedtak" targetNamespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v2" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/vedtak/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v2" xmlns:feil="http://nav.no/tjeneste/domene/pensjon/vedtak/v2/feil" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/vedtak/v2/meldinger">
+      <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v2/feil" schemaLocation="feil/feil.xsd"/>
+      <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v2/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="finnVedtakIdOgSakId">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:finnVedtakIdOgSakIdRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="finnVedtakIdOgSakIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:finnVedtakIdOgSakIdResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="automatiskOpphorAvYtelse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="automatiskOpphorAvYtelseRequest" type="meldinger:AutomatiskOpphorAvYtelseRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="automatiskOpphorAvYtelseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="automatiskOpphorAvYtelseResponse" type="meldinger:AutomatiskOpphorAvYtelseResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="automatiskOpphorAvYtelseautomatiskOpphorAvYtelseFeilet" type="feil:AutomatiskOpphorAvYtelseFeilet"/>
+      <xsd:element name="ping">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pingResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="finnVedtakIdOgSakIdRequest">
+    <wsdl:part element="tns:finnVedtakIdOgSakId" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="finnVedtakIdOgSakIdResponse">
+    <wsdl:part element="tns:finnVedtakIdOgSakIdResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="automatiskOpphorAvYtelseRequest">
+    <wsdl:part element="tns:automatiskOpphorAvYtelse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="automatiskOpphorAvYtelseResponse">
+    <wsdl:part element="tns:automatiskOpphorAvYtelseResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="automatiskOpphorAvYtelseAutomatiskOpphorAvYtelseFeilet">
+    <wsdl:part element="tns:automatiskOpphorAvYtelseautomatiskOpphorAvYtelseFeilet" name="automatiskOpphorAvYtelseFeilet"/>
+  </wsdl:message>
+  <wsdl:message name="pingRequest">
+    <wsdl:part element="tns:ping" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part element="tns:pingResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Vedtak_v2">
+    <wsdl:operation name="finnVedtakIdOgSakId">
+      <wsdl:documentation>Operasjonen finner siste gjeldende vedtakId, og tilhørende sakId, for en gitt ytelse. </wsdl:documentation>
+      <wsdl:input message="tns:finnVedtakIdOgSakIdRequest"/>
+      <wsdl:output message="tns:finnVedtakIdOgSakIdResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="automatiskOpphorAvYtelse">
+      <wsdl:input message="tns:automatiskOpphorAvYtelseRequest"/>
+      <wsdl:output message="tns:automatiskOpphorAvYtelseResponse"/>
+      <wsdl:fault message="tns:automatiskOpphorAvYtelseAutomatiskOpphorAvYtelseFeilet" name="automatiskOpphorAvYtelseFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingRequest"/>
+      <wsdl:output message="tns:pingResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2/meldinger" xmlns:informasjon="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2/informasjon" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2/meldinger">
+  <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2/informasjon" schemaLocation="../informasjon/informasjon.xsd"/>
+  <xsd:complexType name="OppdaterKravoppgaveForApneKravRequest">
+    <xsd:annotation>
+      <xsd:documentation>Operasjonen oppretter en oppgave, hvor PEN er ansvarlig for å fylle ut oppgavedetaljene ut i fra innsendt oppgavebeskrivelsesKode og underkategoriKode.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="sakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til saken oppgaven eksisterer på</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="oppgavebeskrivelseKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Tekstkoder for beskrivelsesfeltet i oppgaven</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="hovedkravlinjeType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Hovedkravlinjen for det åpne kravet. Brukes dersom sakstype == UFOREP, for å skille mellom om det er UP eller UT sitt åpne krav som skal oppdateres,
+
+da disse kan ha hvert sitt åpne krav. For alle andre sakstyper er det en begrensning på et åpent krav pr sakstype, og det er da ikke relevant å sende inn denne. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="tilbakerullStatus" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>Feltet angir om eventuelle åpne krav skal rulles tilbake til status "til behandling".</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OppdaterForventedeInntekterPaInntektsgrunnlagResponse"/>
+  <xsd:complexType name="OpprettKravoppgaveResponse">
+    <xsd:sequence>
+      <xsd:element name="oppgaveId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til oppgave som skal opprettet</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OppdaterKravoppgaveForApneKravResponse">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="oppgaveIdListe" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til oppgave som er opprettet</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OpprettOppgaveVedYtelseFraAvtalelandResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="oppgaveId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til oppgave som er opprettet</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OpprettGenerellOppgaveVedApentKravRequest">
+    <xsd:sequence>
+      <xsd:element name="vedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til vedtaket som tilhører saken det skal opprettes oppgave på.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="beskrivelseKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Tekstkoder for underfelter i oppgaven</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RegistrerVedtaksbrevRequest">
+    <xsd:annotation>
+      <xsd:documentation>Operasjonen legger brevkoden på vedtak.autobrevListe, slik at dette kan hentes opp igjen i PPEN015.  </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="vedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til UT-vedtaket det skal legges brevkode på. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OpprettKravoppgaveRequest">
+    <xsd:annotation>
+      <xsd:documentation>Operasjonen oppretter en oppgave, hvor PEN er ansvarlig for å fylle ut oppgavedetaljene ut i fra innsendt oppgavebeskrivelsesKode og underkategoriKode.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="kravId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til krav for oppretting av oppgave.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="oppgavebeskrivelseKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Tekstkoder for beskrivelsesfeltet i oppgaven. Koblet opp mot Pensjon sitt kodeverk for Tekster og Faste Verdier.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="underkategoriKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Oppgavens underkategori</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="VedlikeholdInntektsabonnementRequest">
+    <xsd:sequence>
+      <xsd:element name="vedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>VedtakId på vedtaket som benyttes for å vurdere om det skal opprettes/avsluttes abonnement</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OpprettOppgaveVedYtelseFraAvtalelandRequest">
+    <xsd:sequence>
+      <xsd:element name="vedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til vedtaket som tilhører saken det skal opprettes oppgave på.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OpprettGenerellOppgaveVedApentKravResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="oppgaveId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til oppgave som er opprettet</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OppdaterForventedeInntekterPaInntektsgrunnlagRequest">
+    <xsd:sequence>
+      <xsd:element name="kravId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til UT-kravet det ønskes å oppdatere inntekten på.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fnr" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Fødselsnummer til bruker</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="fnrEPS" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Fødselsnummer til EPS</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="forventetInntektBrukerListe" type="informasjon:Inntektsgrunnlag">
+        <xsd:annotation>
+          <xsd:documentation>Liste av inntektsgrunnlag relatert til persongrunnlaget for bruker</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="forventetInntektEPSListe" type="informasjon:Inntektsgrunnlag">
+        <xsd:annotation>
+          <xsd:documentation>Liste av inntektsgrunnlag relatert til persongrunnlaget for EPS</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
