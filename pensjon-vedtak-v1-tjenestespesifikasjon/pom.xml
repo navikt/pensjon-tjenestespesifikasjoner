@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>no.nav.tjenester</groupId>
+		<artifactId>tjenestespesifikasjoner-pensjon</artifactId>
+		<version>0-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>pensjon-vedtak-v1-tjenestespesifikasjon</artifactId>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>wsdl-to-java</id>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+						<configuration>
+							<wsdlFiles>
+								<wsdlFile>Binding.wsdl</wsdlFile>
+							</wsdlFiles>
+							<wsdlDirectory>src/main/wsdl/no/nav/tjeneste/domene/pensjon/vedtak/v1/</wsdlDirectory>
+							<sourceDestDir>target/generated-sources</sourceDestDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

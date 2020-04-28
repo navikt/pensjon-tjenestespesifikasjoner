@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2/meldinger" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2/meldinger">
+  <xsd:complexType name="BehandleTilbakekrevingRequest">
+    <xsd:sequence>
+      <xsd:element name="kravId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>ID til vurderingskrav som er opprettet av batchen. Dette kravet skal være av type som ikke sendes oppdrag eller sperrer for andre krav</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fnr" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Fødselsnummeret til bruker som kravet er opprettet for</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="prioritet" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Enten BATCH eller ONLINE. Default verdi settes til BATCH!</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eksisterendeVedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til eksisterende vedtak som vilkårsprøvingen skal kopieres fra.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="sakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id for saken tilhørende det nye kravet og det eksisterende vedtaket.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BehandleEtteroppgjorRequest">
+    <xsd:sequence>
+      <xsd:element name="kravId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>ID til behandlingskrav for etteroppgjør. Dette kravet skal være av type som kan sendes til oppdrag, og som sperrer som "åpent krav"</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fnr" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Fødselsnummeret til bruker som kravet er opprettet for</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="prioritet" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Enten BATCH eller ONLINE. Default verdi settes til BATCH.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eksisterendeVedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til eksisterende vedtak som vilkårsprøvingen skal kopieres fra.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AvbrytAutomatiskBehandlingRequest">
+    <xsd:sequence>
+      <xsd:element name="kravId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>ID til kravet tilhørende etteroppgjør.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="oppgaveKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Kode som beskriver hvorfor kravet blir sendt til manuell behandling. 
+
+Koden er grunnlag for Oppgave-opprettelsen senere i prosessen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fnr" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Fødselsnummeret til bruker som kravet er opprettet for</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

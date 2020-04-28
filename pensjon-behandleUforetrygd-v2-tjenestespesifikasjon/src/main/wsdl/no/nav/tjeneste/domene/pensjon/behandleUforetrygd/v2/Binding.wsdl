@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Binding" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/Binding" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/Binding" xmlns:wsdl_1="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="behandleUforetrygd.wsdl" namespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2"/>
+  <wsdl:binding name="BehandleUforetrygd_v2Binding" type="wsdl_1:BehandleUforetrygd_v2">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="opprettInntektsendringKrav">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/BindingopprettInntektsendringKrav/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="opprettInntektsendringKravFault">
+        <soap:fault name="opprettInntektsendringKravFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="videreforVilkarsproving">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/BindingvidereforVilkarsproving/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="beregnUforetrygd">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/BindingberegnUforetrygd/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vurderNyForventetInntekt">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/BindingvurderNyForventetInntekt/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vurderEndretYtelse">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/BindingvurderEndretYtelse/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="beregnUforetrygdEtteroppgjor">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/BindingberegnUforetrygdEtteroppgjor/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lagreForventetInntektTilInntektskomponenten">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/BindinglagreForventetInntektTilInntektskomponenten/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hentOgOppdaterForventedeInntekterPaInntektsgrunnlag">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/BindinghentOgOppdaterForventedeInntekterPaInntektsgrunnlag/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/Bindingping/"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BehandleUforetrygd_v2">
+    <wsdl:port binding="tns:BehandleUforetrygd_v2Binding" name="BehandleUforetrygd_v2Port">
+      <soap:address location="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/BindingBehandleUforetrygd_v2/BehandleUforetrygd_v2Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

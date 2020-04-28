@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="behandleSak" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2/meldinger">
+      <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="oppdaterForventedeInntekterPaInntektsgrunnlag">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:OppdaterForventedeInntekterPaInntektsgrunnlagRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="oppdaterForventedeInntekterPaInntektsgrunnlagResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:OppdaterForventedeInntekterPaInntektsgrunnlagResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="registrerVedtaksbrev">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:RegistrerVedtaksbrevRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="registrerVedtaksbrevResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="plassholder" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="opprettKravoppgave">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:OpprettKravoppgaveRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="opprettKravoppgaveResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:OpprettKravoppgaveResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="oppdaterKravoppgaveForApneKrav">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:OppdaterKravoppgaveForApneKravRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="oppdaterKravoppgaveForApneKravResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:OppdaterKravoppgaveForApneKravResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vedlikeholdInntektsabonnement">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:VedlikeholdInntektsabonnementRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vedlikeholdInntektsabonnementResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="plassholder" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="opprettGenerellOppgaveVedApentKrav">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:OpprettGenerellOppgaveVedApentKravRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="opprettGenerellOppgaveVedApentKravResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:OpprettGenerellOppgaveVedApentKravResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="opprettOppgaveVedYtelseFraAvtaleland">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:OpprettOppgaveVedYtelseFraAvtalelandRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="opprettOppgaveVedYtelseFraAvtalelandResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:OpprettOppgaveVedYtelseFraAvtalelandResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="oppdaterForventedeInntekterPaInntektsgrunnlagRequest">
+    <wsdl:part element="tns:oppdaterForventedeInntekterPaInntektsgrunnlag" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="oppdaterForventedeInntekterPaInntektsgrunnlagResponse">
+    <wsdl:part element="tns:oppdaterForventedeInntekterPaInntektsgrunnlagResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="registrerVedtaksbrevRequest">
+    <wsdl:part element="tns:registrerVedtaksbrev" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="registrerVedtaksbrevResponse">
+    <wsdl:part element="tns:registrerVedtaksbrevResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="opprettKravoppgaveRequest">
+    <wsdl:part element="tns:opprettKravoppgave" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="opprettKravoppgaveResponse">
+    <wsdl:part element="tns:opprettKravoppgaveResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="oppdaterKravoppgaveForApneKravRequest">
+    <wsdl:part element="tns:oppdaterKravoppgaveForApneKrav" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="oppdaterKravoppgaveForApneKravResponse">
+    <wsdl:part element="tns:oppdaterKravoppgaveForApneKravResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="vedlikeholdInntektsabonnementRequest">
+    <wsdl:part element="tns:vedlikeholdInntektsabonnement" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="vedlikeholdInntektsabonnementResponse">
+    <wsdl:part element="tns:vedlikeholdInntektsabonnementResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="opprettGenerellOppgaveVedApentKravRequest">
+    <wsdl:part element="tns:opprettGenerellOppgaveVedApentKrav" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="opprettGenerellOppgaveVedApentKravResponse">
+    <wsdl:part element="tns:opprettGenerellOppgaveVedApentKravResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="opprettOppgaveVedYtelseFraAvtalelandRequest">
+    <wsdl:part element="tns:opprettOppgaveVedYtelseFraAvtaleland" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="opprettOppgaveVedYtelseFraAvtalelandResponse">
+    <wsdl:part element="tns:opprettOppgaveVedYtelseFraAvtalelandResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="BehandleSak_v2">
+    <wsdl:operation name="oppdaterForventedeInntekterPaInntektsgrunnlag">
+      <wsdl:documentation> </wsdl:documentation>
+      <wsdl:input message="tns:oppdaterForventedeInntekterPaInntektsgrunnlagRequest"/>
+      <wsdl:output message="tns:oppdaterForventedeInntekterPaInntektsgrunnlagResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="registrerVedtaksbrev">
+      <wsdl:input message="tns:registrerVedtaksbrevRequest"/>
+      <wsdl:output message="tns:registrerVedtaksbrevResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="opprettKravoppgave">
+      <wsdl:input message="tns:opprettKravoppgaveRequest"/>
+      <wsdl:output message="tns:opprettKravoppgaveResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="oppdaterKravoppgaveForApneKrav">
+      <wsdl:documentation>Operasjonen iverksettes i tilfeller der det allerede eksisterer et åpent krav når det blir forsøkt å opprette et nytt krav.
+
+Operasjonen leter fram det åpne kravet, og finner oppgaven som tilhører det åpne kravet. Operasjonen legger også til "OppgavebeskrivelsesKode.dekode i oppgaveteksten, slik at saksbehandler håndterer dette, i tillegg til det som står anført i opprinnelig oppgavetekst. </wsdl:documentation>
+      <wsdl:input message="tns:oppdaterKravoppgaveForApneKravRequest"/>
+      <wsdl:output message="tns:oppdaterKravoppgaveForApneKravResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="vedlikeholdInntektsabonnement">
+      <wsdl:input message="tns:vedlikeholdInntektsabonnementRequest"/>
+      <wsdl:output message="tns:vedlikeholdInntektsabonnementResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="opprettGenerellOppgaveVedApentKrav">
+      <wsdl:input message="tns:opprettGenerellOppgaveVedApentKravRequest"/>
+      <wsdl:output message="tns:opprettGenerellOppgaveVedApentKravResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="opprettOppgaveVedYtelseFraAvtaleland">
+      <wsdl:input message="tns:opprettOppgaveVedYtelseFraAvtalelandRequest"/>
+      <wsdl:output message="tns:opprettOppgaveVedYtelseFraAvtalelandResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

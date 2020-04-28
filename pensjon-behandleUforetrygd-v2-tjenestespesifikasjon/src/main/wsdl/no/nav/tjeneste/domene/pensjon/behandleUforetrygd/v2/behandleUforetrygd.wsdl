@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="behandleUforetrygd" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2" xmlns:feil="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/feil" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/meldinger">
+      <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/feil" schemaLocation="feil/feil.xsd"/>
+      <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="opprettInntektsendringKrav">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:OpprettInntektsendringKravRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="opprettInntektsendringKravResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:OpprettInntektsendringKravResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="opprettInntektsendringKravapentKravEksisterer" type="feil:ApentKravEksisterer"/>
+      <xsd:element name="videreforVilkarsproving">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:VidereforVilkarsprovingRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="videreforVilkarsprovingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:VidereforVilkarsprovingResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="beregnUforetrygd">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:BeregnUforetrygdRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="beregnUforetrygdResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vurderNyForventetInntekt">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:VurderNyForventetInntektRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vurderNyForventetInntektResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:VurderNyForventetInntektResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vurderEndretYtelse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:VurderEndretYtelseRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vurderEndretYtelseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:VurderEndretYtelseResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="beregnUforetrygdEtteroppgjor">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:BeregnUforetrygdEtteroppgjorRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="beregnUforetrygdEtteroppgjorResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:BeregnUforetrygdEtteroppgjorResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="lagreForventetInntektTilInntektskomponenten">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:LagreForventetInntektTilInntektskomponentenRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="lagreForventetInntektTilInntektskomponentenResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:LagreForventetInntektTilInntektskomponentenResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentOgOppdaterForventedeInntekterPaInntektsgrunnlag">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:HentOgOppdaterForventedeInntekterPaInntektsgrunnlagRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:HentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ping">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pingResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="opprettInntektsendringKravRequest">
+    <wsdl:part element="tns:opprettInntektsendringKrav" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="opprettInntektsendringKravResponse">
+    <wsdl:part element="tns:opprettInntektsendringKravResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="opprettInntektsendringKravApentKravEksisterer">
+    <wsdl:part element="tns:opprettInntektsendringKravapentKravEksisterer" name="apentKravEksisterer"/>
+  </wsdl:message>
+  <wsdl:message name="videreforVilkarsprovingRequest">
+    <wsdl:part element="tns:videreforVilkarsproving" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="videreforVilkarsprovingResponse">
+    <wsdl:part element="tns:videreforVilkarsprovingResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="beregnUforetrygdRequest">
+    <wsdl:part element="tns:beregnUforetrygd" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="beregnUforetrygdResponse">
+    <wsdl:part element="tns:beregnUforetrygdResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="vurderNyForventetInntektRequest">
+    <wsdl:part element="tns:vurderNyForventetInntekt" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="vurderNyForventetInntektResponse">
+    <wsdl:part element="tns:vurderNyForventetInntektResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="vurderEndretYtelseRequest">
+    <wsdl:part element="tns:vurderEndretYtelse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="vurderEndretYtelseResponse">
+    <wsdl:part element="tns:vurderEndretYtelseResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="beregnUforetrygdEtteroppgjorRequest">
+    <wsdl:part element="tns:beregnUforetrygdEtteroppgjor" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="beregnUforetrygdEtteroppgjorResponse">
+    <wsdl:part element="tns:beregnUforetrygdEtteroppgjorResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="lagreForventetInntektTilInntektskomponentenRequest">
+    <wsdl:part element="tns:lagreForventetInntektTilInntektskomponenten" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="lagreForventetInntektTilInntektskomponentenResponse">
+    <wsdl:part element="tns:lagreForventetInntektTilInntektskomponentenResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="hentOgOppdaterForventedeInntekterPaInntektsgrunnlagRequest">
+    <wsdl:part element="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlag" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="hentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse">
+    <wsdl:part element="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="pingRequest">
+    <wsdl:part element="tns:ping" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part element="tns:pingResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="BehandleUforetrygd_v2">
+    <wsdl:operation name="opprettInntektsendringKrav">
+      <wsdl:documentation>Operasjonen registrerer et nytt krav med type inntektsendring på den eksisterende saken, og kopierer grunnlaget fra kravet tilhørende det eksisterende vedtaket. </wsdl:documentation>
+      <wsdl:input message="tns:opprettInntektsendringKravRequest"/>
+      <wsdl:output message="tns:opprettInntektsendringKravResponse"/>
+      <wsdl:fault message="tns:opprettInntektsendringKravApentKravEksisterer" name="opprettInntektsendringKravFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="videreforVilkarsproving">
+      <wsdl:documentation>Operasjonen kopierer vilkårsprøvingen fra eksisterende UT-vedtak til et nytt UT-vedtak på den eksisterende saken. </wsdl:documentation>
+      <wsdl:input message="tns:videreforVilkarsprovingRequest"/>
+      <wsdl:output message="tns:videreforVilkarsprovingResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="beregnUforetrygd">
+      <wsdl:documentation>Operasjonen beregner ny uføretrygd ut fra UT-vedtaket. </wsdl:documentation>
+      <wsdl:input message="tns:beregnUforetrygdRequest"/>
+      <wsdl:output message="tns:beregnUforetrygdResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="vurderNyForventetInntekt">
+      <wsdl:documentation>Operasjonen vurderer hva som skal benyttes som nye forventede inntekter for bruker, ut i fra tidligere forventede, samt faktiske inntekter som er innrapportert for bruker. Tjenesten returnerer også status av inntektsvurderignen som da bestemmer videre handling.  </wsdl:documentation>
+      <wsdl:input message="tns:vurderNyForventetInntektRequest"/>
+      <wsdl:output message="tns:vurderNyForventetInntektResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="vurderEndretYtelse">
+      <wsdl:documentation>Operasjonen gjør en vurdering på om den nye forventede inntekten er over en gitt toleransegrense, slik at bruker skal inntektsavkortes. </wsdl:documentation>
+      <wsdl:input message="tns:vurderEndretYtelseRequest"/>
+      <wsdl:output message="tns:vurderEndretYtelseResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="beregnUforetrygdEtteroppgjor">
+      <wsdl:input message="tns:beregnUforetrygdEtteroppgjorRequest"/>
+      <wsdl:output message="tns:beregnUforetrygdEtteroppgjorResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="lagreForventetInntektTilInntektskomponenten">
+      <wsdl:documentation> </wsdl:documentation>
+      <wsdl:input message="tns:lagreForventetInntektTilInntektskomponentenRequest"/>
+      <wsdl:output message="tns:lagreForventetInntektTilInntektskomponentenResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="hentOgOppdaterForventedeInntekterPaInntektsgrunnlag">
+      <wsdl:documentation>Operasjonen beregner ny uføretrygd ut fra UT-vedtaket. </wsdl:documentation>
+      <wsdl:input message="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlagRequest"/>
+      <wsdl:output message="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingRequest"/>
+      <wsdl:output message="tns:pingResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

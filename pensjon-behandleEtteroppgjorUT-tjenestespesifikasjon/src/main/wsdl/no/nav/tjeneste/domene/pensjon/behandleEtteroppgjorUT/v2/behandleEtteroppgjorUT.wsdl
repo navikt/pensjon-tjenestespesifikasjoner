@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="behandleEtteroppgjorUT" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2/meldinger">
+      <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="avbrytAutomatiskBehandling">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:AvbrytAutomatiskBehandlingRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="avbrytAutomatiskBehandlingResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="behandleEtteroppgjor">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:BehandleEtteroppgjorRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="behandleEtteroppgjorResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="behandleTilbakekreving">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:BehandleTilbakekrevingRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="behandleTilbakekrevingResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ping">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pingResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="avbrytAutomatiskBehandlingRequest">
+    <wsdl:part element="tns:avbrytAutomatiskBehandling" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="avbrytAutomatiskBehandlingResponse">
+    <wsdl:part element="tns:avbrytAutomatiskBehandlingResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="behandleEtteroppgjorRequest">
+    <wsdl:part element="tns:behandleEtteroppgjor" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="behandleEtteroppgjorResponse">
+    <wsdl:part element="tns:behandleEtteroppgjorResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="behandleTilbakekrevingRequest">
+    <wsdl:part element="tns:behandleTilbakekreving" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="behandleTilbakekrevingResponse">
+    <wsdl:part element="tns:behandleTilbakekrevingResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="pingRequest">
+    <wsdl:part element="tns:ping" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part element="tns:pingResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="BehandleEtteroppgjorUT_v2">
+    <wsdl:operation name="avbrytAutomatiskBehandling">
+      <wsdl:input message="tns:avbrytAutomatiskBehandlingRequest"/>
+      <wsdl:output message="tns:avbrytAutomatiskBehandlingResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="behandleEtteroppgjor">
+      <wsdl:input message="tns:behandleEtteroppgjorRequest"/>
+      <wsdl:output message="tns:behandleEtteroppgjorResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="behandleTilbakekreving">
+      <wsdl:input message="tns:behandleTilbakekrevingRequest"/>
+      <wsdl:output message="tns:behandleTilbakekrevingResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingRequest"/>
+      <wsdl:output message="tns:pingResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

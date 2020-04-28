@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="Binding" targetNamespace="http://no.nav/domene/pensjon/tjenester/konverterTilUforetrygd/v1/Binding/" xmlns:konverterTilUforetrygd="http://nav.no/domene/pensjon/tjenester/konverterTilUforetrygd/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://no.nav/domene/pensjon/tjenester/konverterTilUforetrygd/v1/Binding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../konverterTilUforetrygd.wsdl" namespace="http://nav.no/domene/pensjon/tjenester/konverterTilUforetrygd/v1"/>
+  <wsdl:binding name="KonverterTilUforetrygdBinding" type="konverterTilUforetrygd:KonverterTilUforetrygd">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="konverterKrav">
+      <soap:operation soapAction="http://no.nav/domene/pensjon/tjenester/konverterTilUforetrygd/v1/Binding/konverterKrav/"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="konverterVilkarsproving">
+      <soap:operation soapAction="http://no.nav/domene/pensjon/tjenester/konverterTilUforetrygd/v1/Binding/konverterVilkarsproving/"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KonverterTilUforetrygd">
+    <wsdl:port binding="tns:KonverterTilUforetrygdBinding" name="KonverterTilUforetrygdPort">
+      <soap:address location="http://no.nav/domene/pensjon/tjenester/konverterTilUforetrygd/v1/Binding/KonverterTilUforetrygd/KonverterTilUforetrygdPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

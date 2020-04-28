@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="vurderUTOmregningVedInntektsendring" targetNamespace="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" xmlns:tns="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" xmlns:meldinger="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/meldinger/v2">
+      <xsd:import namespace="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/meldinger/v2" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="vurderUTOmregningVedInntektsendring">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:VurderUTOmregningVedInntektsendringRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vurderUTOmregningVedInntektsendringResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="plassholder" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="vurderUTOmregningVedInntektsendringRequest">
+    <wsdl:part element="tns:vurderUTOmregningVedInntektsendring" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="vurderUTOmregningVedInntektsendringResponse">
+    <wsdl:part element="tns:vurderUTOmregningVedInntektsendringResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="VurderUTOmregningVedInntektsendring_v2">
+    <wsdl:operation name="vurderUTOmregningVedInntektsendring">
+      <wsdl:input message="tns:vurderUTOmregningVedInntektsendringRequest"/>
+      <wsdl:output message="tns:vurderUTOmregningVedInntektsendringResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
