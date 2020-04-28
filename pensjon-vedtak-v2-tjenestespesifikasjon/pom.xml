@@ -25,7 +25,7 @@
 							<wsdlFiles>
 								<wsdlFile>Binding.wsdl</wsdlFile>
 							</wsdlFiles>
-							<wsdlDirectory>src/main/wsdl/no/nav/tjeneste/domene/pensjon/vedtak/v2/</wsdlDirectory>
+							<wsdlDirectory>${wsdl.directory}/no/nav/tjeneste/domene/pensjon/vedtak/v2/</wsdlDirectory>
 							<sourceDestDir>target/generated-sources</sourceDestDir>
 						</configuration>
 					</execution>
