@@ -25,7 +25,7 @@
 							<wsdlFiles>
 								<wsdlFile>Binding.wsdl</wsdlFile>
 							</wsdlFiles>
-							<wsdlDirectory>src/main/wsdl/no/nav/domene/pensjon/tjenester/konverterTilUforetrygd/v1</wsdlDirectory>
+							<wsdlDirectory>${wsdl.directory}/no/nav/domene/pensjon/tjenester/konverterTilUforetrygd/v1</wsdlDirectory>
 							<sourceDestDir>target/generated-sources</sourceDestDir>
 						</configuration>
 					</execution>
