@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Binding" targetNamespace="http://no/nav/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/Binding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://no/nav/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/Binding/" xmlns:vurderUTOmregningVedInntektsendring="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <wsdl:import location="../vurderUTOmregningVedInntektsendring.wsdl" namespace="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Binding" targetNamespace="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/Binding/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/Binding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vurderUTOmregningVedInntektsendring="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:import namespace="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" location="../vurderUTOmregningVedInntektsendring.wsdl">
+    </wsdl:import>
   <wsdl:binding name="VurderUTOmregningVedInntektsendring_v2Binding" type="vurderUTOmregningVedInntektsendring:VurderUTOmregningVedInntektsendring_v2">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaw:UsingAddressing/>
     <wsdl:operation name="vurderUTOmregningVedInntektsendring">
-      <soap:operation soapAction="http://no/nav/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/Binding/vurderUTOmregningVedInntektsendring/"/>
+      <soap:operation soapAction="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2/VurderUTOmregningVedInntektsendring_v2/vurderUTOmregningVedInntektsendringRequest"/>
       <wsdl:input>
         <soap:body parts="parameters" use="literal"/>
       </wsdl:input>
@@ -13,8 +16,8 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="VurderUTOmregningVedInntektsendring_v2">
-    <wsdl:port binding="tns:VurderUTOmregningVedInntektsendring_v2Binding" name="VurderUTOmregningVedInntektsendring_v2Port">
-      <soap:address location="http://no/nav/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/Binding/VurderUTOmregningVedInntektsendring_v2/VurderUTOmregningVedInntektsendring_v2Port"/>
+    <wsdl:port name="VurderUTOmregningVedInntektsendring_v2Port" binding="tns:VurderUTOmregningVedInntektsendring_v2Binding">
+      <soap:address location="http://localhost:9080/pensjon-microflow-vurderUTOmregningVedInntektsendringProxyWeb/sca/VurderUTOmregningVedInntektsendringWSEXP"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

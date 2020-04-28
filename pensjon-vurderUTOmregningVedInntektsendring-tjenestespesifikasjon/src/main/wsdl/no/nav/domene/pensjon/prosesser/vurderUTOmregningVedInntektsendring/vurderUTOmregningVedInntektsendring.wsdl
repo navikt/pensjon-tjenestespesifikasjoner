@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="vurderUTOmregningVedInntektsendring" targetNamespace="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" xmlns:tns="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="vurderUTOmregningVedInntektsendring" targetNamespace="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xsd:schema targetNamespace="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/v2" xmlns:meldinger="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/meldinger/v2">
       <xsd:import namespace="http://nav.no/domene/pensjon/prosesser/vurderUTOmregningVedInntektsendring/meldinger/v2" schemaLocation="meldinger/meldinger.xsd"/>
@@ -12,7 +13,7 @@
       <xsd:element name="vurderUTOmregningVedInntektsendringResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element minOccurs="0" name="plassholder" type="xsd:anyType"/>
+            
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
