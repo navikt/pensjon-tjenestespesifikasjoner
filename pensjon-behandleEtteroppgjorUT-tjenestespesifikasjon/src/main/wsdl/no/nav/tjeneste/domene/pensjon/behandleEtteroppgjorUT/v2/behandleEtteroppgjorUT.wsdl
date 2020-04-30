@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="behandleEtteroppgjorUT" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="behandleEtteroppgjorUT" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xsd:schema targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2/meldinger">
       <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/behandleEtteroppgjorUT/v2/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
@@ -50,46 +51,62 @@
       </xsd:element>
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="avbrytAutomatiskBehandlingRequest">
-    <wsdl:part element="tns:avbrytAutomatiskBehandling" name="parameters"/>
+  <wsdl:message name="behandleTilbakekrevingRequest">
+    <wsdl:part name="parameters" element="tns:behandleTilbakekreving">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="avbrytAutomatiskBehandlingResponse">
-    <wsdl:part element="tns:avbrytAutomatiskBehandlingResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="behandleEtteroppgjorRequest">
-    <wsdl:part element="tns:behandleEtteroppgjor" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="behandleEtteroppgjorResponse">
-    <wsdl:part element="tns:behandleEtteroppgjorResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="behandleTilbakekrevingRequest">
-    <wsdl:part element="tns:behandleTilbakekreving" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="behandleTilbakekrevingResponse">
-    <wsdl:part element="tns:behandleTilbakekrevingResponse" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:avbrytAutomatiskBehandlingResponse">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="pingRequest">
-    <wsdl:part element="tns:ping" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:ping">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="avbrytAutomatiskBehandlingRequest">
+    <wsdl:part name="parameters" element="tns:avbrytAutomatiskBehandling">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="pingResponse">
-    <wsdl:part element="tns:pingResponse" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:pingResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="behandleEtteroppgjorResponse">
+    <wsdl:part name="parameters" element="tns:behandleEtteroppgjorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="behandleEtteroppgjorRequest">
+    <wsdl:part name="parameters" element="tns:behandleEtteroppgjor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="behandleTilbakekrevingResponse">
+    <wsdl:part name="parameters" element="tns:behandleTilbakekrevingResponse">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="BehandleEtteroppgjorUT_v2">
     <wsdl:operation name="avbrytAutomatiskBehandling">
-      <wsdl:input message="tns:avbrytAutomatiskBehandlingRequest"/>
-      <wsdl:output message="tns:avbrytAutomatiskBehandlingResponse"/>
+      <wsdl:input message="tns:avbrytAutomatiskBehandlingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:avbrytAutomatiskBehandlingResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="behandleEtteroppgjor">
-      <wsdl:input message="tns:behandleEtteroppgjorRequest"/>
-      <wsdl:output message="tns:behandleEtteroppgjorResponse"/>
+      <wsdl:input message="tns:behandleEtteroppgjorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:behandleEtteroppgjorResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="behandleTilbakekreving">
-      <wsdl:input message="tns:behandleTilbakekrevingRequest"/>
-      <wsdl:output message="tns:behandleTilbakekrevingResponse"/>
+      <wsdl:input message="tns:behandleTilbakekrevingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:behandleTilbakekrevingResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ping">
-      <wsdl:input message="tns:pingRequest"/>
-      <wsdl:output message="tns:pingResponse"/>
+      <wsdl:input message="tns:pingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:pingResponse">
+    </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>
