@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Binding" targetNamespace="http://no/nav/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/Binding/" xmlns:behandleEndretForventetArbeidsinntekt="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/v2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://no/nav/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/Binding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <wsdl:import location="../behandleEndretForventetArbeidsinntekt.wsdl" namespace="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/v2"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Binding" targetNamespace="http://no/nav/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/Binding/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://no/nav/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/Binding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:behandleEndretForventetArbeidsinntekt="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/v2">
+  <wsdl:import namespace="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/v2" location="../behandleEndretForventetArbeidsinntekt.wsdl">
+    </wsdl:import>
   <wsdl:binding name="BehandleEndretForventetArbeidsinntekt_v2Binding" type="behandleEndretForventetArbeidsinntekt:BehandleEndretForventetArbeidsinntekt_v2">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaw:UsingAddressing/>
     <wsdl:operation name="behandleEndretForventetArbeidsinntekt">
-      <soap:operation soapAction="http://no/nav/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/Binding/behandleEndretForventetArbeidsinntekt/"/>
+      <soap:operation soapAction="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/v2/BehandleEndretForventetArbeidsinntekt_v2/behandleEndretForventetArbeidsinntektRequest"/>
       <wsdl:input>
         <soap:body parts="parameters" use="literal"/>
       </wsdl:input>
@@ -12,7 +15,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="behandleEndretForventetArbeidsinntektOgSendResultat">
-      <soap:operation soapAction="http://no/nav/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/Binding/behandleEndretForventetArbeidsinntektOgSendResultat/"/>
+      <soap:operation soapAction="http://nav.no/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/v2/BehandleEndretForventetArbeidsinntekt_v2/behandleEndretForventetArbeidsinntektOgSendResultatRequest"/>
       <wsdl:input>
         <soap:body parts="parameters" use="literal"/>
       </wsdl:input>
@@ -22,8 +25,8 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="BehandleEndretForventetArbeidsinntekt_v2">
-    <wsdl:port binding="tns:BehandleEndretForventetArbeidsinntekt_v2Binding" name="BehandleEndretForventetArbeidsinntekt_v2Port">
-      <soap:address location="http://no/nav/domene/pensjon/prosesser/behandleEndretForventetArbeidsinntekt/Binding/BehandleEndretForventetArbeidsinntekt_v2/BehandleEndretForventetArbeidsinntekt_v2Port"/>
+    <wsdl:port name="BehandleEndretForventetArbeidsinntekt_v2Port" binding="tns:BehandleEndretForventetArbeidsinntekt_v2Binding">
+      <soap:address location="http://localhost:9080/pensjon-microflow-behandleEndretForventetArbeidsinntektProxyWeb/sca/BehandleEndretForventetArbeidsinntektWSEXP"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
