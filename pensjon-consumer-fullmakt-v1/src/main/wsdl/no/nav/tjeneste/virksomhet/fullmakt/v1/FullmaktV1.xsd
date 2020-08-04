@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://nav.no/tjeneste/virksomhet/fullmakt/v1"
+           xmlns:tns="http://nav.no/tjeneste/virksomhet/fullmakt/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:ns4="http://nav.no/tjeneste/felles/v1/informasjon"
+           xmlns:ns3="http://nav.no/tjeneste/virksomhet/fullmakt/v1/meldinger">
+
+  <xs:import namespace="http://nav.no/tjeneste/virksomhet/fullmakt/v1/informasjon" schemaLocation="informasjon/informasjon.xsd"/>
+
+  <xs:import namespace="http://nav.no/tjeneste/virksomhet/fullmakt/v1/informasjon/kodeverk" schemaLocation="informasjon/kodeverk/kodeverk.xsd"/>
+
+  <xs:import namespace="http://nav.no/tjeneste/virksomhet/fullmakt/v1/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
+
+  <xs:import namespace="http://nav.no/tjeneste/felles/v1/informasjon" schemaLocation="../../../felles/v1/informasjon/informasjon.xsd"/>
+
+  <xs:element name="Sikkerhetsbegrensning" nillable="true" type="ns4:forretningsmessigUnntaksdetaljer"/>
+
+  <xs:element name="UgyldigInput" nillable="true" type="ns4:forretningsmessigUnntaksdetaljer" />
+
+  <xs:element name="finnAlleFullmaktsmottakereListe" type="tns:finnAlleFullmaktsmottakereListe"/>
+
+  <xs:element name="finnAlleFullmaktsmottakereListeResponse" type="tns:finnAlleFullmaktsmottakereListeResponse"/>
+
+  <xs:element name="ping" type="tns:ping"/>
+
+  <xs:element name="pingResponse" type="tns:pingResponse"/>
+
+  <xs:complexType name="finnAlleFullmaktsmottakereListe">
+    <xs:sequence>
+      <xs:element name="request" type="ns3:finnAlleFullmaktsmottakereListeRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="finnAlleFullmaktsmottakereListeResponse">
+    <xs:sequence>
+      <xs:element name="response" type="ns3:finnAlleFullmaktsmottakereListeResponse" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ping">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="pingResponse">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>
+

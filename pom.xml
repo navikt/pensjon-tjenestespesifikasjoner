@@ -48,6 +48,7 @@
 		<module>pensjon-behandleEtteroppgjorUT-tjenestespesifikasjon</module>
 		<module>pensjon-behandleSak-v2-tjenestespesifikasjon</module>
 		<module>pensjon-behandleUforetrygd-v2-tjenestespesifikasjon</module>
+        <module>pensjon-consumer-fullmakt-v1</module>
 		<module>pensjon-konverterTilUforetrygd-tjenestespesifikasjon</module>
         <module>pensjon-krav-v1-tjenestespesifikasjon</module>
         <module>pensjon-rekonverterUPTilUT-tjenestespesifikasjon</module>

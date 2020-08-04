@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions targetNamespace="http://nav.no/tjeneste/virksomhet/fullmakt/v1" name="Fullmakt_v1"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://nav.no/tjeneste/virksomhet/fullmakt/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+             xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://nav.no/tjeneste/virksomhet/fullmakt/v1/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://nav.no/tjeneste/virksomhet/fullmakt/v1/informasjon/kodeverk" schemaLocation="informasjon/kodeverk/kodeverk.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://nav.no/tjeneste/virksomhet/fullmakt/v1/informasjon" schemaLocation="informasjon/informasjon.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://nav.no/tjeneste/virksomhet/fullmakt/v1" schemaLocation="FullmaktV1.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://nav.no/tjeneste/felles/v1/informasjon" schemaLocation="../../../felles/v1/informasjon/informasjon.xsd"/>
+    </xsd:schema>
+  </types>
+
+  <message name="finnAlleFullmaktsmottakereListe">
+    <part name="parameters" element="tns:finnAlleFullmaktsmottakereListe"/>
+  </message>
+  <message name="finnAlleFullmaktsmottakereListeResponse">
+    <part name="parameters" element="tns:finnAlleFullmaktsmottakereListeResponse"/>
+  </message>
+  <message name="ping">
+    <part name="parameters" element="tns:ping"/>
+  </message>
+  <message name="pingResponse">
+    <part name="parameters" element="tns:pingResponse"/>
+  </message>
+  <message name="Sikkerhetsbegrensning">
+    <part name="fault" element="tns:Sikkerhetsbegrensning"/>
+  </message>
+  <message name="UgyldigInput">
+    <part name="fault" element="tns:UgyldigInput"/>
+  </message>
+
+  <portType name="Fullmakt_v1">
+    <operation name="finnAlleFullmaktsmottakereListe">
+      <input wsam:Action="http://nav.no/tjeneste/virksomhet/fullmakt/v1/Fullmakt_v1/finnAlleFullmaktsmottakereListeRequest" message="tns:finnAlleFullmaktsmottakereListe"/>
+      <output wsam:Action="http://nav.no/tjeneste/virksomhet/fullmakt/v1/Fullmakt_v1/finnAlleFullmaktsmottakereListeResponse" message="tns:finnAlleFullmaktsmottakereListeResponse"/>
+      <fault message="tns:Sikkerhetsbegrensning" name="Sikkerhetsbegrensning" wsam:Action="http://nav.no/tjeneste/virksomhet/fullmakt/v1/Fullmakt_v1/finnAlleFullmaktsmottakereListe/Fault/Sikkerhetsbegrensning"/>
+      <fault message="tns:UgyldigInput" name="UgyldigInput" wsam:Action="http://nav.no/tjeneste/virksomhet/fullmakt/v1/Fullmakt_v1/finnAlleFullmaktsmottakereListe/Fault/UgyldigInput"/>
+    </operation>
+    <operation name="ping">
+      <input wsam:Action="http://nav.no/tjeneste/virksomhet/fullmakt/v1/Fullmakt_v1/pingRequest" message="tns:ping"/>
+      <output wsam:Action="http://nav.no/tjeneste/virksomhet/fullmakt/v1/Fullmakt_v1/pingResponse" message="tns:pingResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="Fullmakt_v1PortBinding" type="tns:Fullmakt_v1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsaw:UsingAddressing/>
+    <operation name="finnAlleFullmaktsmottakereListe">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Sikkerhetsbegrensning">
+        <soap:fault name="Sikkerhetsbegrensning" use="literal"/>
+      </fault>
+      <fault name="UgyldigInput">
+        <soap:fault name="UgyldigInput" use="literal" />
+      </fault>
+    </operation>
+    <operation name="ping">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Fullmakt_v1">
+    <port name="Fullmakt_v1Port" binding="tns:Fullmakt_v1PortBinding">
+      <soap:address location="http://localhost:9080/virksomhet/fullmakt_v1"/>
+    </port>
+  </service>
+</definitions>
+
