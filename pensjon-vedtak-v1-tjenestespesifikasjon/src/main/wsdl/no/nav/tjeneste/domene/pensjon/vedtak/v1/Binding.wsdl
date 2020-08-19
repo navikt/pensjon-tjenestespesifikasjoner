@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Binding" targetNamespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/Binding" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/Binding" xmlns:wsdl_1="http://nav.no/tjeneste/domene/pensjon/vedtak/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <wsdl:import location="vedtak.wsdl" namespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v1"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Binding" targetNamespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/Binding" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/Binding" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl_1="http://nav.no/tjeneste/domene/pensjon/vedtak/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:import namespace="http://nav.no/tjeneste/domene/pensjon/vedtak/v1" location="vedtak.wsdl">
+    </wsdl:import>
   <wsdl:binding name="Vedtak_v1Binding" type="wsdl_1:Vedtak_v1">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaw:UsingAddressing/>
     <wsdl:operation name="finnVedtakIdOgSakId">
-      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/BindingfinnVedtakIdOgSakId/"/>
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/Vedtak_v1/finnVedtakIdOgSakIdRequest"/>
       <wsdl:input>
         <soap:body parts="parameters" use="literal"/>
       </wsdl:input>
@@ -12,7 +15,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ping">
-      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/Bindingping/"/>
+      <soap:operation soapAction="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/Vedtak_v1/pingRequest"/>
       <wsdl:input>
         <soap:body parts="parameters" use="literal"/>
       </wsdl:input>
@@ -22,8 +25,8 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Vedtak_v1">
-    <wsdl:port binding="tns:Vedtak_v1Binding" name="Vedtak_v1Port">
-      <soap:address location="http://nav.no/tjeneste/domene/pensjon/vedtak/v1/BindingVedtak_v1/Vedtak_v1Port"/>
+    <wsdl:port name="Vedtak_v1Port" binding="tns:Vedtak_v1Binding">
+      <soap:address location="http://localhost:9080/domene/pensjon/vedtak_v1"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
