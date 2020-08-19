@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="konverterTilUforetrygd" targetNamespace="http://nav.no/domene/pensjon/tjenester/konverterTilUforetrygd/v1" xmlns:tns="http://nav.no/domene/pensjon/tjenester/konverterTilUforetrygd/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="konverterTilUforetrygd" targetNamespace="http://nav.no/domene/pensjon/tjenester/konverterTilUforetrygd/v1" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/domene/pensjon/tjenester/konverterTilUforetrygd/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xsd:schema targetNamespace="http://nav.no/domene/pensjon/tjenester/konverterTilUforetrygd/v1" xmlns:meldinger="http://nav.no/domene/pensjon/tjenester/konverterTilUforetrygd/meldinger/v1">
       <xsd:import namespace="http://nav.no/domene/pensjon/tjenester/konverterTilUforetrygd/meldinger/v1" schemaLocation="meldinger/meldinger.xsd"/>
@@ -33,27 +34,35 @@
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="konverterKravRequest">
-    <wsdl:part element="tns:konverterKrav" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="konverterKravResponse">
-    <wsdl:part element="tns:konverterKravResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="konverterVilkarsprovingRequest">
-    <wsdl:part element="tns:konverterVilkarsproving" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:konverterKrav">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="konverterVilkarsprovingResponse">
-    <wsdl:part element="tns:konverterVilkarsprovingResponse" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:konverterVilkarsprovingResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="konverterVilkarsprovingRequest">
+    <wsdl:part name="parameters" element="tns:konverterVilkarsproving">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="konverterKravResponse">
+    <wsdl:part name="parameters" element="tns:konverterKravResponse">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="KonverterTilUforetrygd">
     <wsdl:operation name="konverterKrav">
-      <wsdl:documentation>&lt;p&gt;Operasjonen registrerer et nytt UT-krav på den eksisterende UP/UT-saken, og kopierer grunnlaget fra det eksisterende UP-kravet til det nyopprettede UT-kravet.&lt;/p&gt; </wsdl:documentation>
-      <wsdl:input message="tns:konverterKravRequest"/>
-      <wsdl:output message="tns:konverterKravResponse"/>
+<wsdl:documentation>&lt;p&gt;Operasjonen registrerer et nytt UT-krav på den eksisterende UP/UT-saken, og kopierer grunnlaget fra det eksisterende UP-kravet til det nyopprettede UT-kravet.&lt;/p&gt; </wsdl:documentation>
+      <wsdl:input message="tns:konverterKravRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:konverterKravResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="konverterVilkarsproving">
-      <wsdl:documentation>&lt;p&gt;Operasjonen kopierer vilkårsprøvingen fra et eksisterende UP-vedtak til et nytt UT-vedtak på den eksisterende saken.&lt;/p&gt; </wsdl:documentation>
-      <wsdl:input message="tns:konverterVilkarsprovingRequest"/>
-      <wsdl:output message="tns:konverterVilkarsprovingResponse"/>
+<wsdl:documentation>&lt;p&gt;Operasjonen kopierer vilkårsprøvingen fra et eksisterende UP-vedtak til et nytt UT-vedtak på den eksisterende saken.&lt;/p&gt; </wsdl:documentation>
+      <wsdl:input message="tns:konverterVilkarsprovingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:konverterVilkarsprovingResponse">
+    </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>
