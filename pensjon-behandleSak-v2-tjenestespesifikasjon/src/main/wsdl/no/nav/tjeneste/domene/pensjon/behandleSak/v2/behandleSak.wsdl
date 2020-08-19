@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="behandleSak" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="behandleSak" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xsd:schema targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2/meldinger">
       <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/behandleSak/v2/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
@@ -26,7 +27,7 @@
       <xsd:element name="registrerVedtaksbrevResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element minOccurs="0" name="plassholder" type="xsd:anyType"/>
+            
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -68,7 +69,7 @@
       <xsd:element name="vedlikeholdInntektsabonnementResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element minOccurs="0" name="plassholder" type="xsd:anyType"/>
+            
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -102,80 +103,108 @@
       </xsd:element>
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="oppdaterForventedeInntekterPaInntektsgrunnlagRequest">
-    <wsdl:part element="tns:oppdaterForventedeInntekterPaInntektsgrunnlag" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="oppdaterForventedeInntekterPaInntektsgrunnlagResponse">
-    <wsdl:part element="tns:oppdaterForventedeInntekterPaInntektsgrunnlagResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="registrerVedtaksbrevRequest">
-    <wsdl:part element="tns:registrerVedtaksbrev" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="registrerVedtaksbrevResponse">
-    <wsdl:part element="tns:registrerVedtaksbrevResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="opprettKravoppgaveRequest">
-    <wsdl:part element="tns:opprettKravoppgave" name="parameters"/>
-  </wsdl:message>
   <wsdl:message name="opprettKravoppgaveResponse">
-    <wsdl:part element="tns:opprettKravoppgaveResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="oppdaterKravoppgaveForApneKravRequest">
-    <wsdl:part element="tns:oppdaterKravoppgaveForApneKrav" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="oppdaterKravoppgaveForApneKravResponse">
-    <wsdl:part element="tns:oppdaterKravoppgaveForApneKravResponse" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:opprettKravoppgaveResponse">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="vedlikeholdInntektsabonnementRequest">
-    <wsdl:part element="tns:vedlikeholdInntektsabonnement" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:vedlikeholdInntektsabonnement">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="vedlikeholdInntektsabonnementResponse">
-    <wsdl:part element="tns:vedlikeholdInntektsabonnementResponse" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:vedlikeholdInntektsabonnementResponse">
+    </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="opprettGenerellOppgaveVedApentKravRequest">
-    <wsdl:part element="tns:opprettGenerellOppgaveVedApentKrav" name="parameters"/>
+  <wsdl:message name="opprettKravoppgaveRequest">
+    <wsdl:part name="parameters" element="tns:opprettKravoppgave">
+    </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="opprettGenerellOppgaveVedApentKravResponse">
-    <wsdl:part element="tns:opprettGenerellOppgaveVedApentKravResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="opprettOppgaveVedYtelseFraAvtalelandRequest">
-    <wsdl:part element="tns:opprettOppgaveVedYtelseFraAvtaleland" name="parameters"/>
+  <wsdl:message name="oppdaterForventedeInntekterPaInntektsgrunnlagResponse">
+    <wsdl:part name="parameters" element="tns:oppdaterForventedeInntekterPaInntektsgrunnlagResponse">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="opprettOppgaveVedYtelseFraAvtalelandResponse">
-    <wsdl:part element="tns:opprettOppgaveVedYtelseFraAvtalelandResponse" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:opprettOppgaveVedYtelseFraAvtalelandResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="opprettGenerellOppgaveVedApentKravRequest">
+    <wsdl:part name="parameters" element="tns:opprettGenerellOppgaveVedApentKrav">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="opprettGenerellOppgaveVedApentKravResponse">
+    <wsdl:part name="parameters" element="tns:opprettGenerellOppgaveVedApentKravResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registrerVedtaksbrevResponse">
+    <wsdl:part name="parameters" element="tns:registrerVedtaksbrevResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="oppdaterKravoppgaveForApneKravResponse">
+    <wsdl:part name="parameters" element="tns:oppdaterKravoppgaveForApneKravResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="opprettOppgaveVedYtelseFraAvtalelandRequest">
+    <wsdl:part name="parameters" element="tns:opprettOppgaveVedYtelseFraAvtaleland">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registrerVedtaksbrevRequest">
+    <wsdl:part name="parameters" element="tns:registrerVedtaksbrev">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="oppdaterForventedeInntekterPaInntektsgrunnlagRequest">
+    <wsdl:part name="parameters" element="tns:oppdaterForventedeInntekterPaInntektsgrunnlag">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="oppdaterKravoppgaveForApneKravRequest">
+    <wsdl:part name="parameters" element="tns:oppdaterKravoppgaveForApneKrav">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="BehandleSak_v2">
     <wsdl:operation name="oppdaterForventedeInntekterPaInntektsgrunnlag">
-      <wsdl:documentation> </wsdl:documentation>
-      <wsdl:input message="tns:oppdaterForventedeInntekterPaInntektsgrunnlagRequest"/>
-      <wsdl:output message="tns:oppdaterForventedeInntekterPaInntektsgrunnlagResponse"/>
+<wsdl:documentation> </wsdl:documentation>
+      <wsdl:input message="tns:oppdaterForventedeInntekterPaInntektsgrunnlagRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:oppdaterForventedeInntekterPaInntektsgrunnlagResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="registrerVedtaksbrev">
-      <wsdl:input message="tns:registrerVedtaksbrevRequest"/>
-      <wsdl:output message="tns:registrerVedtaksbrevResponse"/>
+      <wsdl:input message="tns:registrerVedtaksbrevRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:registrerVedtaksbrevResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="opprettKravoppgave">
-      <wsdl:input message="tns:opprettKravoppgaveRequest"/>
-      <wsdl:output message="tns:opprettKravoppgaveResponse"/>
+      <wsdl:input message="tns:opprettKravoppgaveRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:opprettKravoppgaveResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="oppdaterKravoppgaveForApneKrav">
-      <wsdl:documentation>Operasjonen iverksettes i tilfeller der det allerede eksisterer et åpent krav når det blir forsøkt å opprette et nytt krav.
+<wsdl:documentation>Operasjonen iverksettes i tilfeller der det allerede eksisterer et åpent krav når det blir forsøkt å opprette et nytt krav.
 
-Operasjonen leter fram det åpne kravet, og finner oppgaven som tilhører det åpne kravet. Operasjonen legger også til "OppgavebeskrivelsesKode.dekode i oppgaveteksten, slik at saksbehandler håndterer dette, i tillegg til det som står anført i opprinnelig oppgavetekst. </wsdl:documentation>
-      <wsdl:input message="tns:oppdaterKravoppgaveForApneKravRequest"/>
-      <wsdl:output message="tns:oppdaterKravoppgaveForApneKravResponse"/>
+Operasjonen leter fram det åpne kravet, og finner oppgaven som tilhører det åpne kravet. Operasjonen legger også til &quot;OppgavebeskrivelsesKode.dekode i oppgaveteksten, slik at saksbehandler håndterer dette, i tillegg til det som står anført i opprinnelig oppgavetekst. </wsdl:documentation>
+      <wsdl:input message="tns:oppdaterKravoppgaveForApneKravRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:oppdaterKravoppgaveForApneKravResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="vedlikeholdInntektsabonnement">
-      <wsdl:input message="tns:vedlikeholdInntektsabonnementRequest"/>
-      <wsdl:output message="tns:vedlikeholdInntektsabonnementResponse"/>
+      <wsdl:input message="tns:vedlikeholdInntektsabonnementRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:vedlikeholdInntektsabonnementResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="opprettGenerellOppgaveVedApentKrav">
-      <wsdl:input message="tns:opprettGenerellOppgaveVedApentKravRequest"/>
-      <wsdl:output message="tns:opprettGenerellOppgaveVedApentKravResponse"/>
+      <wsdl:input message="tns:opprettGenerellOppgaveVedApentKravRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:opprettGenerellOppgaveVedApentKravResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="opprettOppgaveVedYtelseFraAvtaleland">
-      <wsdl:input message="tns:opprettOppgaveVedYtelseFraAvtalelandRequest"/>
-      <wsdl:output message="tns:opprettOppgaveVedYtelseFraAvtalelandResponse"/>
+      <wsdl:input message="tns:opprettOppgaveVedYtelseFraAvtalelandRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:opprettOppgaveVedYtelseFraAvtalelandResponse">
+    </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>
