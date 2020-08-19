@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="behandleUforetrygd" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="behandleUforetrygd" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xsd:schema targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2" xmlns:feil="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/feil" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/meldinger">
       <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/feil" schemaLocation="feil/feil.xsd"/>
@@ -41,7 +42,23 @@
       </xsd:element>
       <xsd:element name="beregnUforetrygdResponse">
         <xsd:complexType>
-          <xsd:sequence/>
+          <xsd:sequence>
+            
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentBrevbestillingsdataLopendeInntektsavkorting">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:hentBrevbestillingsdataLopendeInntektsavkortingRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentBrevbestillingsdataLopendeInntektsavkortingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:hentBrevbestillingsdataLopendeInntektsavkortingResponse"/>
+          </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="vurderNyForventetInntekt">
@@ -86,6 +103,20 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="hentBrevbestillingsdataTilbakekrevingEtteroppgjor">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:HentBrevbestillingsdataTilbakekrevingEtteroppgjorRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentBrevbestillingsdataTilbakekrevingEtteroppgjorResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:HentBrevbestillingsdataTilbakekrevingEtteroppgjorResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="lagreForventetInntektTilInntektskomponenten">
         <xsd:complexType>
           <xsd:sequence>
@@ -116,117 +147,188 @@
       </xsd:element>
       <xsd:element name="ping">
         <xsd:complexType>
-          <xsd:sequence/>
+          <xsd:sequence>
+            
+          </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="pingResponse">
         <xsd:complexType>
-          <xsd:sequence/>
+          <xsd:sequence>
+            
+          </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="opprettInntektsendringKravRequest">
-    <wsdl:part element="tns:opprettInntektsendringKrav" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="opprettInntektsendringKravResponse">
-    <wsdl:part element="tns:opprettInntektsendringKravResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="opprettInntektsendringKravApentKravEksisterer">
-    <wsdl:part element="tns:opprettInntektsendringKravapentKravEksisterer" name="apentKravEksisterer"/>
-  </wsdl:message>
   <wsdl:message name="videreforVilkarsprovingRequest">
-    <wsdl:part element="tns:videreforVilkarsproving" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="videreforVilkarsprovingResponse">
-    <wsdl:part element="tns:videreforVilkarsprovingResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="beregnUforetrygdRequest">
-    <wsdl:part element="tns:beregnUforetrygd" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:videreforVilkarsproving">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="beregnUforetrygdResponse">
-    <wsdl:part element="tns:beregnUforetrygdResponse" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:beregnUforetrygdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hentBrevbestillingsdataLopendeInntektsavkortingRequest">
+    <wsdl:part name="parameters" element="tns:hentBrevbestillingsdataLopendeInntektsavkorting">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="vurderNyForventetInntektRequest">
-    <wsdl:part element="tns:vurderNyForventetInntekt" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:vurderNyForventetInntekt">
+    </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="vurderNyForventetInntektResponse">
-    <wsdl:part element="tns:vurderNyForventetInntektResponse" name="parameters"/>
+  <wsdl:message name="hentBrevbestillingsdataLopendeInntektsavkortingResponse">
+    <wsdl:part name="parameters" element="tns:hentBrevbestillingsdataLopendeInntektsavkortingResponse">
+    </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="vurderEndretYtelseRequest">
-    <wsdl:part element="tns:vurderEndretYtelse" name="parameters"/>
+  <wsdl:message name="hentBrevbestillingsdataTilbakekrevingEtteroppgjorResponse">
+    <wsdl:part name="parameters" element="tns:hentBrevbestillingsdataTilbakekrevingEtteroppgjorResponse">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="vurderEndretYtelseResponse">
-    <wsdl:part element="tns:vurderEndretYtelseResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="beregnUforetrygdEtteroppgjorRequest">
-    <wsdl:part element="tns:beregnUforetrygdEtteroppgjor" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="beregnUforetrygdEtteroppgjorResponse">
-    <wsdl:part element="tns:beregnUforetrygdEtteroppgjorResponse" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="lagreForventetInntektTilInntektskomponentenRequest">
-    <wsdl:part element="tns:lagreForventetInntektTilInntektskomponenten" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="lagreForventetInntektTilInntektskomponentenResponse">
-    <wsdl:part element="tns:lagreForventetInntektTilInntektskomponentenResponse" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:vurderEndretYtelseResponse">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="hentOgOppdaterForventedeInntekterPaInntektsgrunnlagRequest">
-    <wsdl:part element="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlag" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlag">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="beregnUforetrygdEtteroppgjorRequest">
+    <wsdl:part name="parameters" element="tns:beregnUforetrygdEtteroppgjor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="beregnUforetrygdRequest">
+    <wsdl:part name="parameters" element="tns:beregnUforetrygd">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lagreForventetInntektTilInntektskomponentenResponse">
+    <wsdl:part name="parameters" element="tns:lagreForventetInntektTilInntektskomponentenResponse">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="hentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse">
-    <wsdl:part element="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="opprettInntektsendringKrav_apentKravEksisterer">
+    <wsdl:part name="apentKravEksisterer" element="tns:opprettInntektsendringKravapentKravEksisterer">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="beregnUforetrygdEtteroppgjorResponse">
+    <wsdl:part name="parameters" element="tns:beregnUforetrygdEtteroppgjorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="opprettInntektsendringKravRequest">
+    <wsdl:part name="parameters" element="tns:opprettInntektsendringKrav">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lagreForventetInntektTilInntektskomponentenRequest">
+    <wsdl:part name="parameters" element="tns:lagreForventetInntektTilInntektskomponenten">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vurderNyForventetInntektResponse">
+    <wsdl:part name="parameters" element="tns:vurderNyForventetInntektResponse">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="pingRequest">
-    <wsdl:part element="tns:ping" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:ping">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="pingResponse">
-    <wsdl:part element="tns:pingResponse" name="parameters"/>
+    <wsdl:part name="parameters" element="tns:pingResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vurderEndretYtelseRequest">
+    <wsdl:part name="parameters" element="tns:vurderEndretYtelse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hentBrevbestillingsdataTilbakekrevingEtteroppgjorRequest">
+    <wsdl:part name="parameters" element="tns:hentBrevbestillingsdataTilbakekrevingEtteroppgjor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="videreforVilkarsprovingResponse">
+    <wsdl:part name="parameters" element="tns:videreforVilkarsprovingResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="opprettInntektsendringKravResponse">
+    <wsdl:part name="parameters" element="tns:opprettInntektsendringKravResponse">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="BehandleUforetrygd_v2">
     <wsdl:operation name="opprettInntektsendringKrav">
-      <wsdl:documentation>Operasjonen registrerer et nytt krav med type inntektsendring på den eksisterende saken, og kopierer grunnlaget fra kravet tilhørende det eksisterende vedtaket. </wsdl:documentation>
-      <wsdl:input message="tns:opprettInntektsendringKravRequest"/>
-      <wsdl:output message="tns:opprettInntektsendringKravResponse"/>
-      <wsdl:fault message="tns:opprettInntektsendringKravApentKravEksisterer" name="opprettInntektsendringKravFault"/>
+<wsdl:documentation>Operasjonen registrerer et nytt krav med type inntektsendring på den eksisterende saken, og kopierer grunnlaget fra kravet tilhørende det eksisterende vedtaket. </wsdl:documentation>
+      <wsdl:input message="tns:opprettInntektsendringKravRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:opprettInntektsendringKravResponse">
+    </wsdl:output>
+      <wsdl:fault name="apentKravEksisterer" message="tns:opprettInntektsendringKrav_apentKravEksisterer">
+    </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="videreforVilkarsproving">
-      <wsdl:documentation>Operasjonen kopierer vilkårsprøvingen fra eksisterende UT-vedtak til et nytt UT-vedtak på den eksisterende saken. </wsdl:documentation>
-      <wsdl:input message="tns:videreforVilkarsprovingRequest"/>
-      <wsdl:output message="tns:videreforVilkarsprovingResponse"/>
+<wsdl:documentation>Operasjonen kopierer vilkårsprøvingen fra eksisterende UT-vedtak til et nytt UT-vedtak på den eksisterende saken. </wsdl:documentation>
+      <wsdl:input message="tns:videreforVilkarsprovingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:videreforVilkarsprovingResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="beregnUforetrygd">
-      <wsdl:documentation>Operasjonen beregner ny uføretrygd ut fra UT-vedtaket. </wsdl:documentation>
-      <wsdl:input message="tns:beregnUforetrygdRequest"/>
-      <wsdl:output message="tns:beregnUforetrygdResponse"/>
+<wsdl:documentation>Operasjonen beregner ny uføretrygd ut fra UT-vedtaket. </wsdl:documentation>
+      <wsdl:input message="tns:beregnUforetrygdRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:beregnUforetrygdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hentBrevbestillingsdataLopendeInntektsavkorting">
+<wsdl:documentation>Operasjonen henter alle nødvendige data for å kunne sende et informasjonsbrev til personen eller vergen. </wsdl:documentation>
+      <wsdl:input message="tns:hentBrevbestillingsdataLopendeInntektsavkortingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:hentBrevbestillingsdataLopendeInntektsavkortingResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="vurderNyForventetInntekt">
-      <wsdl:documentation>Operasjonen vurderer hva som skal benyttes som nye forventede inntekter for bruker, ut i fra tidligere forventede, samt faktiske inntekter som er innrapportert for bruker. Tjenesten returnerer også status av inntektsvurderignen som da bestemmer videre handling.  </wsdl:documentation>
-      <wsdl:input message="tns:vurderNyForventetInntektRequest"/>
-      <wsdl:output message="tns:vurderNyForventetInntektResponse"/>
+<wsdl:documentation>Operasjonen vurderer hva som skal benyttes som nye forventede inntekter for bruker, ut i fra tidligere forventede, samt faktiske inntekter som er innrapportert for bruker. Tjenesten returnerer også status av inntektsvurderignen som da bestemmer videre handling.  </wsdl:documentation>
+      <wsdl:input message="tns:vurderNyForventetInntektRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:vurderNyForventetInntektResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="vurderEndretYtelse">
-      <wsdl:documentation>Operasjonen gjør en vurdering på om den nye forventede inntekten er over en gitt toleransegrense, slik at bruker skal inntektsavkortes. </wsdl:documentation>
-      <wsdl:input message="tns:vurderEndretYtelseRequest"/>
-      <wsdl:output message="tns:vurderEndretYtelseResponse"/>
+<wsdl:documentation>Operasjonen gjør en vurdering på om den nye forventede inntekten er over en gitt toleransegrense, slik at bruker skal inntektsavkortes. </wsdl:documentation>
+      <wsdl:input message="tns:vurderEndretYtelseRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:vurderEndretYtelseResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="beregnUforetrygdEtteroppgjor">
-      <wsdl:input message="tns:beregnUforetrygdEtteroppgjorRequest"/>
-      <wsdl:output message="tns:beregnUforetrygdEtteroppgjorResponse"/>
+      <wsdl:input message="tns:beregnUforetrygdEtteroppgjorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:beregnUforetrygdEtteroppgjorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hentBrevbestillingsdataTilbakekrevingEtteroppgjor">
+      <wsdl:input message="tns:hentBrevbestillingsdataTilbakekrevingEtteroppgjorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:hentBrevbestillingsdataTilbakekrevingEtteroppgjorResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="lagreForventetInntektTilInntektskomponenten">
-      <wsdl:documentation> </wsdl:documentation>
-      <wsdl:input message="tns:lagreForventetInntektTilInntektskomponentenRequest"/>
-      <wsdl:output message="tns:lagreForventetInntektTilInntektskomponentenResponse"/>
+<wsdl:documentation> </wsdl:documentation>
+      <wsdl:input message="tns:lagreForventetInntektTilInntektskomponentenRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:lagreForventetInntektTilInntektskomponentenResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="hentOgOppdaterForventedeInntekterPaInntektsgrunnlag">
-      <wsdl:documentation>Operasjonen beregner ny uføretrygd ut fra UT-vedtaket. </wsdl:documentation>
-      <wsdl:input message="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlagRequest"/>
-      <wsdl:output message="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse"/>
+<wsdl:documentation>Operasjonen beregner ny uføretrygd ut fra UT-vedtaket. </wsdl:documentation>
+      <wsdl:input message="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlagRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:hentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse">
+    </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ping">
-      <wsdl:input message="tns:pingRequest"/>
-      <wsdl:output message="tns:pingResponse"/>
+      <wsdl:input message="tns:pingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:pingResponse">
+    </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

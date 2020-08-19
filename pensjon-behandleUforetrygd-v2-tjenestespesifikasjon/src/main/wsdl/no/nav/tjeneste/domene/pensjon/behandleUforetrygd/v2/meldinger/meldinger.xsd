@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/meldinger" xmlns:informasjon="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/informasjon" xmlns:meldinger="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/meldinger">
   <xsd:import namespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/informasjon" schemaLocation="../informasjon/informasjon.xsd"/>
-  <xsd:complexType name="OpprettInntektsendringKravResponse">
+  <xsd:complexType name="BeregnUforetrygdEtteroppgjorRequest">
     <xsd:sequence>
-      <xsd:element name="kravId" type="xsd:string">
+      <xsd:element name="vedtakId" type="xsd:string">
         <xsd:annotation>
-          <xsd:documentation>Unik Id til nytt krav på UP/UT-saken hvor de nye inntektene er tilknyttet.</xsd:documentation>
+          <xsd:documentation>Unik Id til UT-vedtaket som det ønskes å få beregnet</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BeregnUforetrygdEtteroppgjorResponse">
+    <xsd:sequence>
+      <xsd:element name="etteroppgjorResultatTypeKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Resultatet av beregningen.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
@@ -40,48 +49,6 @@ INGEN_ENDRING</xsd:documentation>
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:complexType name="VurderEndretYtelseRequest">
-    <xsd:sequence>
-      <xsd:element name="kravVirkFom" type="xsd:date">
-        <xsd:annotation>
-          <xsd:documentation>Dato det nye kravet skal gjelde fra</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="vedtakId" type="xsd:string">
-        <xsd:annotation>
-          <xsd:documentation>Unik Id for vedtaket som vurderes endret</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="nyForventetInntektBrukerListe" type="informasjon:Inntektsgrunnlag">
-        <xsd:annotation>
-          <xsd:documentation>Liste av inntektsgrunnlag relatert til persongrunnlaget for bruker, basert på fremskriving</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="nyForventetInntektEPSListe" type="informasjon:Inntektsgrunnlag">
-        <xsd:annotation>
-          <xsd:documentation>Liste av inntektsgrunnlag relatert til persongrunnlaget for EPS, basert på fremskriving</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="BeregnUforetrygdEtteroppgjorRequest">
-    <xsd:sequence>
-      <xsd:element name="vedtakId" type="xsd:string">
-        <xsd:annotation>
-          <xsd:documentation>Unik Id til UT-vedtaket som det ønskes å få beregnet</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="BeregnUforetrygdRequest">
-    <xsd:sequence>
-      <xsd:element name="vedtakId" type="xsd:string">
-        <xsd:annotation>
-          <xsd:documentation>Unik Id til UT-vedtaket som det ønskes å få beregnet</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-    </xsd:sequence>
-  </xsd:complexType>
   <xsd:complexType name="LagreForventetInntektTilInntektskomponentenRequest">
     <xsd:sequence>
       <xsd:element name="fnr" type="xsd:string">
@@ -101,7 +68,100 @@ INGEN_ENDRING</xsd:documentation>
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
+  <xsd:complexType name="HentBrevbestillingsdataTilbakekrevingEtteroppgjorResponse">
+    <xsd:sequence>
+      <xsd:element name="brevbestillingsdata" type="informasjon:Brevbestillingsdata">
+        <xsd:annotation>
+          <xsd:documentation>Informasjon om brevet som skal sendes</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="brevMottaker" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Fødselsnummer eller TSS-Id. Obligatorisk dersom dokumenttype=N OG kategori=SED</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="journalEnhet" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Enheten som behandler saken</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="saksbehandlerNavn" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Saksbehandler som har arbeidet med saken</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fagomradeKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Hvilket fagområde som sender brevet</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
   <xsd:complexType name="HentOgOppdaterForventedeInntekterPaInntektsgrunnlagResponse"/>
+  <xsd:complexType name="VidereforVilkarsprovingResponse">
+    <xsd:sequence>
+      <xsd:element name="vedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til UT-vedtak</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HentBrevbestillingsdataTilbakekrevingEtteroppgjorRequest">
+    <xsd:sequence>
+      <xsd:element name="vedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Vedtaket det skal sendes brev for</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="VurderEndretYtelseResponse">
+    <xsd:sequence>
+      <xsd:element name="skalYtelseInntektsavkortes" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>Skal prosessen gå videre til PPEN011 eller avslutte?</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OpprettInntektsendringKravResponse">
+    <xsd:sequence>
+      <xsd:element name="kravId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til nytt krav på UP/UT-saken hvor de nye inntektene er tilknyttet.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="VidereforVilkarsprovingRequest">
+    <xsd:sequence>
+      <xsd:element name="kravId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til nytt UT-krav som vilkårsprøvingen skal kopieres til</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eksisterendeVedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til eksisterende vedtak som vilkårsprøvingen skal kopieres fra.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HentOgOppdaterForventedeInntekterPaInntektsgrunnlagRequest">
+    <xsd:sequence>
+      <xsd:element name="kravId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id til UT-kravet det ønskes å oppdatere inntekten på.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fnr" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Fødselsnummer til bruker</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
   <xsd:complexType name="LagreForventetInntektTilInntektskomponentenResponse"/>
   <xsd:complexType name="VurderNyForventetInntektRequest">
     <xsd:sequence>
@@ -137,57 +197,78 @@ INGEN_ENDRING</xsd:documentation>
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:complexType name="VurderEndretYtelseResponse">
+  <xsd:complexType name="hentBrevbestillingsdataLopendeInntektsavkortingRequest">
     <xsd:sequence>
-      <xsd:element name="skalYtelseInntektsavkortes" type="xsd:boolean">
+      <xsd:element name="kravVirkFom" type="xsd:date">
         <xsd:annotation>
-          <xsd:documentation>Skal prosessen gå videre til PPEN011 eller avslutte?</xsd:documentation>
+          <xsd:documentation>Dato for å finne gjeldende vedtak.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="vedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Vedtaket det skal sendes brev for</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:complexType name="VidereforVilkarsprovingRequest">
-    <xsd:sequence>
-      <xsd:element name="kravId" type="xsd:string">
-        <xsd:annotation>
-          <xsd:documentation>Unik Id til nytt UT-krav som vilkårsprøvingen skal kopieres til</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="eksisterendeVedtakId" type="xsd:string">
-        <xsd:annotation>
-          <xsd:documentation>Unik Id til eksisterende vedtak som vilkårsprøvingen skal kopieres fra.</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="VidereforVilkarsprovingResponse">
+  <xsd:complexType name="BeregnUforetrygdRequest">
     <xsd:sequence>
       <xsd:element name="vedtakId" type="xsd:string">
         <xsd:annotation>
-          <xsd:documentation>Unik Id til UT-vedtak</xsd:documentation>
+          <xsd:documentation>Unik Id til UT-vedtaket som det ønskes å få beregnet</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:complexType name="BeregnUforetrygdEtteroppgjorResponse">
+  <xsd:complexType name="VurderEndretYtelseRequest">
     <xsd:sequence>
-      <xsd:element name="etteroppgjorResultatTypeKode" type="xsd:string">
+      <xsd:element name="kravVirkFom" type="xsd:date">
         <xsd:annotation>
-          <xsd:documentation>Resultatet av beregningen.</xsd:documentation>
+          <xsd:documentation>Dato det nye kravet skal gjelde fra</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="vedtakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik Id for vedtaket som vurderes endret</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="nyForventetInntektBrukerListe" type="informasjon:Inntektsgrunnlag">
+        <xsd:annotation>
+          <xsd:documentation>Liste av inntektsgrunnlag relatert til persongrunnlaget for bruker, basert på fremskriving</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="nyForventetInntektEPSListe" type="informasjon:Inntektsgrunnlag">
+        <xsd:annotation>
+          <xsd:documentation>Liste av inntektsgrunnlag relatert til persongrunnlaget for EPS, basert på fremskriving</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:complexType name="HentOgOppdaterForventedeInntekterPaInntektsgrunnlagRequest">
+  <xsd:complexType name="hentBrevbestillingsdataLopendeInntektsavkortingResponse">
     <xsd:sequence>
-      <xsd:element name="kravId" type="xsd:string">
+      <xsd:element name="brevbestillingsdata" type="informasjon:Brevbestillingsdata">
         <xsd:annotation>
-          <xsd:documentation>Unik Id til UT-kravet det ønskes å oppdatere inntekten på.</xsd:documentation>
+          <xsd:documentation>Informasjon om brevet som skal sendes</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="fnr" type="xsd:string">
+      <xsd:element minOccurs="0" name="brevMottaker" type="xsd:string">
         <xsd:annotation>
-          <xsd:documentation>Fødselsnummer til bruker</xsd:documentation>
+          <xsd:documentation>Fødselsnummer eller TSS-Id. Obligatorisk dersom dokumenttype=N OG kategori=SED</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="journalEnhet" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Enheten som behandler saken</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="saksbehandlerNavn" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Saksbehandler som har arbeidet med saken</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fagomradeKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Hvilket fagområde som sender brevet</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>

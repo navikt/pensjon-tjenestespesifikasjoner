@@ -10,7 +10,7 @@
   </xsd:complexType>
   <xsd:complexType name="ApentKravEksisterer">
     <xsd:annotation>
-      <xsd:documentation>Det eksisterer et åpent krav på saken fra før.</xsd:documentation>
+      <xsd:documentation>Det eksisterer et åpent krav på saken fra før.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="feil:StelvioFault"/>

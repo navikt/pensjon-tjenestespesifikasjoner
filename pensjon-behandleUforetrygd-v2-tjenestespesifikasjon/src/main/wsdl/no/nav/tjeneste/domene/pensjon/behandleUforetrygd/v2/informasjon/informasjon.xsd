@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/informasjon" xmlns:informasjon="http://nav.no/tjeneste/domene/pensjon/behandleUforetrygd/v2/informasjon">
+  <xsd:complexType name="FaktiskeInntekter">
+    <xsd:sequence>
+      <xsd:element name="faktiskeInntekterHittilIAr" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Faktiske inntekter for tre siste måneder rapportert til A-ordningen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="faktiskeInntekter3SisteManeder" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Faktiske inntekter hittil i år rapportert til A-ordningen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="inntektType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Kode som angir type inntekt. De ulike gyldige kodene er definert i K_INNTEKT_T</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
   <xsd:complexType name="Inntektsgrunnlag">
     <xsd:sequence>
       <xsd:element name="fomDato" type="xsd:date">
@@ -61,23 +80,21 @@
   <xsd:simpleType name="Belop">
     <xsd:restriction base="xsd:int"/>
   </xsd:simpleType>
-  <xsd:complexType name="FaktiskeInntekter">
+  <xsd:complexType name="Brevbestillingsdata">
+    <xsd:annotation>
+      <xsd:documentation>Data som skal hentes fra PEN og sendes til PJOARK030 for å få bestilt brev.</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="faktiskeInntekterHittilIAr" type="xsd:int">
-        <xsd:annotation>
-          <xsd:documentation>Faktiske inntekter for tre siste måneder rapportert til A-ordningen</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="faktiskeInntekter3SisteManeder" type="xsd:int">
-        <xsd:annotation>
-          <xsd:documentation>Faktiske inntekter hittil i år rapportert til A-ordningen</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="inntektType" type="xsd:string">
-        <xsd:annotation>
-          <xsd:documentation>Kode som angir type inntekt. De ulike gyldige kodene er definert i K_INNTEKT_T</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
+      <xsd:element name="brevKode" type="xsd:string"/>
+      <xsd:element name="brevGruppe" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="redigerbart" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="vedtaksinformasjon" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="fagsystem" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="dokumenttype" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="innhold" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="kategori" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="sensitivt" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="elektroniskDistribusjon" type="xsd:boolean"/>
     </xsd:sequence>
   </xsd:complexType>
 </xsd:schema>
