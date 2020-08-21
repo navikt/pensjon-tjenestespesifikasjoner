@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nav.no/tjeneste/virksomhet/pensjonsvedtakSamordning/v1/informasjon/pensjonsvedtakSamordning" version="1.0" xmlns:pensjonsvedtakSamordning="http://nav.no/tjeneste/virksomhet/pensjonsvedtakSamordning/v1/informasjon/pensjonsvedtakSamordning">
+  <xsd:complexType name="FremtidigPensjonspoengtall">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="poengtall" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Barnetillegg">
+    <xsd:complexContent>
+      <xsd:extension base="pensjonsvedtakSamordning:Ytelseskomponent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="fribelop" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="antallBarn" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="btDiffEos" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BeregningsResultatUforetrygd">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="inntektForUforhet" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="nettoUforetrygdOrdinar" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="bruttoUforetrygdOrdinar" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="uforegrad" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="yrkesskadegrad" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="nettoBarnetilleggSerkullsbarn" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="bruttoBarnetilleggSerkullsbarn" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="nettoBarnetilleggFellesbarn" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="bruttoBarnetilleggFellesbarn" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="nettoGjenlevendetillegg" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="bruttoGjenlevendetillegg" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="nettoEktefelletillegg" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="resultatKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="virkningFom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="virkningTom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="inntektEtterUforhet" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="anvendtTrygdetid" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="benyttetSivilstand" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="beregningsgrunnlagOrdiner" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="beregningsgrunnlagYrkesskade" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="beregningsgrunnlagOrdinerAvdod" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="beregningsgrunnlagYrkesskadeAvdod" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="anvendtTrygdetidAvdod" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="yrkesskadegradAvdod" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="inntektBruktIInntektsavkorting" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="ufoeretidspunkt" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="beloepsgrense" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Hjelpeloshetsbidrag">
+    <xsd:complexContent>
+      <xsd:extension base="pensjonsvedtakSamordning:Ytelseskomponent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="grunnlagForUtbetaling" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="VedtakStatus">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="vedtakStatus" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UforeEkstra">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="uforeEkstraId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="inntektKode1" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="inntektKode2" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="tak" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="fpp" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="fppGaranti" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="fppGarantiKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="redusertAntFppAr" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Ektefelletillegg">
+    <xsd:complexContent>
+      <xsd:extension base="pensjonsvedtakSamordning:Ytelseskomponent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="fribelop" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="KrigOgGammelYrkesskade">
+    <xsd:complexContent>
+      <xsd:extension base="pensjonsvedtakSamordning:Ytelseskomponent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="pensjonsgrad" type="xsd:int"/>
+          <xsd:element minOccurs="0" name="grunnlagForUtbetaling" type="xsd:int"/>
+          <xsd:element minOccurs="0" name="kapitalUtlosning" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="poengtall" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="forholdstallYG" type="xsd:double"/>
+          <xsd:element minOccurs="0" name="mendel" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="EndringsInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="opprettetAvId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="opprettetAvNavn" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="opprettetAvEnhetId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="opprettetAvEnhetNavn" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="opprettetDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="endretAvId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endretAvNavn" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endretAvEnhetId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endretAvEnhetNavn" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endretDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="kildeId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="kildeNavn" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AFPEO">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="afpeoId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ieoBeregnet" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="ifuBeregnet" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="fpiBeregnet" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="iiap" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="behandlingKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="gruppeKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="avvik" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="tpiBeregnet" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="afpeoResultatKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="fradragBeregnetArbeidsinntekt" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="fullAFP" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="utbetaltAFP" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="korrigertAFP" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="forMyeUtbetalt" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="forLiteUtbetalt" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Grunnpensjon">
+    <xsd:complexContent>
+      <xsd:extension base="pensjonsvedtakSamordning:Ytelseskomponent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="grunnpensjonsats" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Ventetillegg">
+    <xsd:complexContent>
+      <xsd:extension base="pensjonsvedtakSamordning:Ytelseskomponent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ventetilleggGrunnpensjon" type="xsd:int"/>
+          <xsd:element minOccurs="0" name="ventetilleggTilleggspensjon" type="xsd:int"/>
+          <xsd:element minOccurs="0" name="ventetilleggProsent" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TilleggTilHjelpIHuset">
+    <xsd:complexContent>
+      <xsd:extension base="pensjonsvedtakSamordning:Ytelseskomponent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="grunnlagForUtbetaling" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Sluttpoengtall">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="poengtall" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="poengrekke" type="pensjonsvedtakSamordning:Poengrekke"/>
+      <xsd:element minOccurs="0" name="poengtillegg" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="poengtallEos" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="poengtallA10" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="fppGradEos" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BeregningNokkelInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="beregningNokkelinfoId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="fnr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="grunnlagsrolleKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="beregningId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="tt_anv" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="anvendtIBeregningen" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="spt" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+      <xsd:element minOccurs="0" name="ypt" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+      <xsd:element minOccurs="0" name="opt" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Poengrekke">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="poengAr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="poengArFor92" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="poengArEtter91" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="poengArFaktisk" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="tidligerePenInntekt" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="tidligerePenInntektFaktor" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="poengtallAntattArligInntekt" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="framtidigPenpoengtall" type="pensjonsvedtakSamordning:FremtidigPensjonspoengtall"/>
+      <xsd:element minOccurs="0" name="framtidigPenpoengtallOmregnet" type="pensjonsvedtakSamordning:FremtidigPensjonspoengtall"/>
+      <xsd:element minOccurs="0" name="paNo" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="sisteFppAr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="sisteFppArNorden" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="sisteFppArEos" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="paEosFor92" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="paEosEtter91" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="paNordiskFramtBrutto" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="paNordiskFramtNetto" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Vedtak">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="vedtakId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="gjelderFnr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="virkningFom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="virkningTom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="lopendeFom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="lopendeTom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="vedtaksKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="vedtakStatusKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="saksId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="saksKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ansvarligSaksbehandler" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="attesterer" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="attestertDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="vedtaksDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="tilIverksettelseDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="sendtSamordningDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="samordnetDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="iverksattDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="etterbetaling" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="utvidetSamordningsfrist" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="vedtakLast" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="behandlingKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="annenPengemottaker" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="kravhode" type="pensjonsvedtakSamordning:Kravhode"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="vilkarsvedtakListe" type="pensjonsvedtakSamordning:Vilkarsvedtak"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="beregningListe" type="pensjonsvedtakSamordning:Beregning"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+      <xsd:element minOccurs="0" name="hovedkravlinjeResultat" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="instillingsverdi" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="klageAnkeResultat" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="sendtNavi" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="simulertFeilUtbetalingTom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="virkGammeltVedtak" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="afpeo" type="pensjonsvedtakSamordning:AFPEO"/>
+      <xsd:element minOccurs="0" name="regelverkKode" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="beregning2011Liste" type="pensjonsvedtakSamordning:Beregning2011"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="beregningsresultatUforetrygdListe" type="pensjonsvedtakSamordning:BeregningsResultatUforetrygd"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Kravhode">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="kravId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="kravGjelderKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="kravStatusKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="mottattDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="onsketVirkningsDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="komplettDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="boddArbeidUtland" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="vurdereTrygdeavtale" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="norgeBehandlendeLand" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="initiertAv" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="kravVelgKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="tilbakekreving" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="avdodFnr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="afpOrdningKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="afpTillegg" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="organisasjonsnr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="farFnr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="morFnr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="boddArbeidUtlandFar" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="boddArbeidUtlandMor" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="boddArbeidUtlandAvdod" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="behandlingKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="basertPaKravId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="brukOpptjeningFra65I66Aret" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="erBeregnet" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="grunnlagLast" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="gyldigVilkarsproving" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="kravLast" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="overforOmsorgspoeng" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="hentetTps" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+      <xsd:element minOccurs="0" name="regelverkKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="kollektiveVilkar" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TrygdetidKonvensjon">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="trygdetidKonvensjonId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="framtidigTrygdetidAr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="framtidigTrygdetidA10Brutto" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="framtidigTrygdetidA10Netto" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="framtidigTrygdetidA10Redusert" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="trygdetidA10AnvAr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidA10Nevner" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidA10Teller" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidA10FaktiskMnd" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Trygdetid">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="trygdetidId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="framtidigTrygdetid" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="framtidigTrygdetidRedusert" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="trygdetidEtterUFT" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidEtterDod" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidOverfort" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidGaranti" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetid" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidFaktiskMnd" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetid67Til70" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidEtter66" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidFor67" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="opptjeningsperiode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidKonvensjon" type="pensjonsvedtakSamordning:TrygdetidKonvensjon"/>
+      <xsd:element minOccurs="0" name="trygdetidEOS" type="pensjonsvedtakSamordning:TrygdetidEOS"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Tilleggspensjon">
+    <xsd:complexContent>
+      <xsd:extension base="pensjonsvedtakSamordning:Ytelseskomponent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="spt" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+          <xsd:element minOccurs="0" name="ypt" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+          <xsd:element minOccurs="0" name="opt" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Vilkarsvedtak">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="vilkarsvedtakId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="anbefaltResultatKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="vilkarsvedtakResultatKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="anvendtVurderingKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="vilkarsvedtakResultatSpesKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="kravlinjeKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="innstillingKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="virkningFom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="virkningTom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="forsteVirkningsDato" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="gjelderFnr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Beregning2011">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="beregningId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="virkningFom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="virkningTom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="uttaksgrad" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="basisgp" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="basistp" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="basispt" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="forholdstall_uttak" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="forholdstall_67" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="grunnpensjon" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="gpRestpensjon" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="grunnpensjonsats" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="tilleggspensjon" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="tpRestpensjon" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="pensjonstillegg" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="ptRestpensjon" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="totalBelop" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="resultatKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="mndGrunnpensjon" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="mndTilleggspensjon" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="mndPensjonstillegg" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="spt" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+      <xsd:element minOccurs="0" name="ypt" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+      <xsd:element minOccurs="0" name="anvendtTrygdetid" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="yrkesskadegrad" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="bruttoBarnetilleggFellesbarn" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="nettoBarnetilleggFellesbarn" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="antallBarnetilleggFellesbarn" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="bruttoBarnetilleggSerkullsbarn" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="nettoBarnetilleggSerkullsbarn" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="antallBarnetilleggSerkullsbarn" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="ektefelletillegg" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="minstenivatilleggPensjonistpar" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="minstenivatilleggIndividuelt" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="afpLivsvarig" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="afpKronetillegg" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="afpKompensasjonstillegg" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="forholdstallKompensasjonstillegg" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="afpOpptjeningTotalbelop" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="sptAvdod" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+      <xsd:element minOccurs="0" name="optAvdod" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+      <xsd:element minOccurs="0" name="yptAvdod" type="pensjonsvedtakSamordning:Sluttpoengtall"/>
+      <xsd:element minOccurs="0" name="anvendtTrygdetidAvdod" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="fnrAvdod" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="yrkesskadegradAvdod" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="uforegrad" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="skjermingstillegg" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="skjermingsgrad" type="xsd:double"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Beregning">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="beregningId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="virkDatoFom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="virkDatoTom" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="gjelderFnr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="brutto" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="netto" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="grunnbelop" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="beregningKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="resultatKilde" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="resultatKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="p67beregning" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="gradert" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="friinntekt" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="fribelop" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="afpPensjonsgrad" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="totalVinner" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="kravId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="sakId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ektefelleInntektOver2g" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="ektefelleMottarPensjon" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="benyttetSivilstandKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="brukersSivilstandKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="beregnetFremtidigInntekt" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="minstepensjonKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidAnvendt" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="redusertPgaInstOpphold" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="inntektBruktIAvkorting" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="beregningsMetodeKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="uforegrad" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="yrkesskadegrad" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="brukOpptjeningFra5I66Aret" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="grunnpensjon" type="pensjonsvedtakSamordning:Grunnpensjon"/>
+      <xsd:element minOccurs="0" name="tilleggspensjon" type="pensjonsvedtakSamordning:Tilleggspensjon"/>
+      <xsd:element minOccurs="0" name="sertillegg" type="pensjonsvedtakSamordning:Sertillegg"/>
+      <xsd:element minOccurs="0" name="afpTillegg" type="pensjonsvedtakSamordning:Ytelseskomponent"/>
+      <xsd:element minOccurs="0" name="ektefelletillegg" type="pensjonsvedtakSamordning:Ektefelletillegg"/>
+      <xsd:element minOccurs="0" name="barnetilleggFellesBarn" type="pensjonsvedtakSamordning:Barnetillegg"/>
+      <xsd:element minOccurs="0" name="barnetilleggSerkullsbarn" type="pensjonsvedtakSamordning:Barnetillegg"/>
+      <xsd:element minOccurs="0" name="ventetillegg" type="pensjonsvedtakSamordning:Ventetillegg"/>
+      <xsd:element minOccurs="0" name="familietillegg" type="pensjonsvedtakSamordning:Ytelseskomponent"/>
+      <xsd:element minOccurs="0" name="fasteUtgifterTillegg" type="pensjonsvedtakSamordning:Ytelseskomponent"/>
+      <xsd:element minOccurs="0" name="paragraf851Tillegg" type="pensjonsvedtakSamordning:Ytelseskomponent"/>
+      <xsd:element minOccurs="0" name="krigOgGammelYrkesskade" type="pensjonsvedtakSamordning:KrigOgGammelYrkesskade"/>
+      <xsd:element minOccurs="0" name="tilleggTilHjelpIHuset" type="pensjonsvedtakSamordning:TilleggTilHjelpIHuset"/>
+      <xsd:element minOccurs="0" name="hjelpeloshetsbidrag" type="pensjonsvedtakSamordning:Hjelpeloshetsbidrag"/>
+      <xsd:element minOccurs="0" name="uforeEkstra" type="pensjonsvedtakSamordning:UforeEkstra"/>
+      <xsd:element minOccurs="0" name="trygdetid" type="pensjonsvedtakSamordning:Trygdetid"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="beregningNokkelinfoListe" type="pensjonsvedtakSamordning:BeregningNokkelInfo"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+      <xsd:element minOccurs="0" name="brukerFpi" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="minstenivatilleggPensjonistpar" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="minstenivatilleggIndividuelt" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Ytelseskomponent">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ytelseskomponentId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="brutto" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="netto" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="fradrag" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="erBrukt" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="ytelseskomponentKode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="resultatKilde" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Sertillegg">
+    <xsd:complexContent>
+      <xsd:extension base="pensjonsvedtakSamordning:Ytelseskomponent">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="sertilleggsats" type="xsd:double"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TrygdetidEOS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="trygdetidEosId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="framtidigTrygdetidEos" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="framtidigTrygdetidEosRedusert" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="trygdetidEosAnvendtAr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidEosAnvendtMnd" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidEosNevner" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidEosProRataMnd" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidEosTeller" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidEosTeoretiskMnd" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="trygdetidLilPa" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="trygdetidKonvensjonAr" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endringsInfo" type="pensjonsvedtakSamordning:EndringsInfo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

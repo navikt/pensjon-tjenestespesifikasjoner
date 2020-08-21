@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://nav.no/domene/pensjon/tjenester/tilbakekrevingHendelse/meldinger/v2" version="2.0" xmlns:meldinger="http://nav.no/domene/pensjon/tjenester/tilbakekrevingHendelse/meldinger/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="TilbakekrevingsgrunnlagOpprettetRequest">
+    <xsd:sequence>
+      <xsd:element name="fagsystemId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>&lt;p&gt;Referanse til fagsystemets identifikasjon på feilutbetalingen&lt;/p&gt;</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="tilbakekrevingsgrunnlagId" type="xsd:long">
+        <xsd:annotation>
+          <xsd:documentation>&lt;p&gt;Identifikasjon av tilbakekrevingsgrunnlaget&lt;/p&gt;</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fagomradeKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>&lt;p&gt;Tilbakekrevingsgrunnlagets fagområde&lt;/p&gt;</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

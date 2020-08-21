@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/informasjon" xmlns:informasjon="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/informasjon">
+  <xsd:complexType name="Uttaksgrader">
+    <xsd:simpleContent>
+      <xsd:extension base="informasjon:KodeverdiInt">
+        <xsd:attribute name="kodeverksRef" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="SimulertFleksibelAlderspensjonPeriode">
+    <xsd:sequence>
+      <xsd:element name="beloep" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Beløp utbetalt i perioden</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="alder" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Brukers alder for den aktuelle perioden</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="uttaksgradPeriode" type="informasjon:UttaksgradPeriode">
+        <xsd:annotation>
+          <xsd:documentation>Liste av uttaksgrader i aktuell periode. Vil kun settes ved førsteuttak og ved endring av uttaksgrad. På grunn av at bruker kan endre uttaksgrad midt i et år kan man potensielt få to uttaksgrader i en SimulertFleksibelAlderspensjonPeriode</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="KodeverdiInt">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:int">
+        <xsd:attribute name="kodeRef" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="SimulertAfpPrivatPeriode">
+    <xsd:sequence>
+      <xsd:element name="beloep" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Beløp utbetalt i perioden</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="alder" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Brukers alder for den aktuelle perioden</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Uttaksperiode">
+    <xsd:sequence>
+      <xsd:element name="uttaksdato" type="xsd:gYearMonth">
+        <xsd:annotation>
+          <xsd:documentation>Dato som uttaket gjelder fra.
+
+Formatet YYYYMM (år, måned) benyttes for å angi dato.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="uttaksgrad" type="informasjon:Uttaksgrader">
+        <xsd:annotation>
+          <xsd:documentation>Uttaksgrad i prosent for den aktuelle perioden. Gyldige verdier:
+
+
+Kode
+
+   
+
+Dekode
+
+
+20
+
+   
+
+20%
+
+
+40
+
+   
+
+40%
+
+
+50
+
+   
+
+50%
+
+
+60
+
+   
+
+60%
+
+
+80
+
+   
+
+80%
+
+
+100
+
+   
+
+100%</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="aarligInntekt" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Inntekt som bruker kommer til å ha i uttaksperioden.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UttaksgradPeriode">
+    <xsd:sequence>
+      <xsd:element name="uttaksgrad" type="informasjon:Uttaksgrader">
+        <xsd:annotation>
+          <xsd:documentation>Uttaksgrad i prosent for den aktuelle perioden. Gyldige verdier:
+
+
+Kode
+
+   
+
+Dekode
+
+
+20
+
+   
+
+20%
+
+
+40
+
+   
+
+40%
+
+
+50
+
+   
+
+50%
+
+
+60
+
+   
+
+60%
+
+
+80
+
+   
+
+80%
+
+
+100
+
+   
+
+100%</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="startmaaned" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Antall måneder fra brukers fødselsmåned til periodens fomDato. (Gir verdier i intervallet 1-12, der 1 tilsvarer måneden etter at bruker fyller år)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SivilstandVedPensjonering">
+    <xsd:simpleContent>
+      <xsd:extension base="informasjon:KodeverdiString">
+        <xsd:attribute name="kodeverksRef" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="KodeverdiString">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="kodeRef" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType name="Identifikator">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+</xsd:schema>

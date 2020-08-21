@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Binding" targetNamespace="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/Binding" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/Binding" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl_1="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:import namespace="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/" location="simulerePensjon.wsdl">
+    </wsdl:import>
+  <wsdl:binding name="SimulerePensjon_v1Binding" type="wsdl_1:SimulerePensjon_v1">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaw:UsingAddressing/>
+    <wsdl:operation name="hentSimulertPensjon">
+      <soap:operation soapAction="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/SimulerePensjon_v1/hentSimulertPensjonRequest"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="forKortTrygdetid">
+        <soap:fault name="forKortTrygdetid" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="foedtFoer1943">
+        <soap:fault name="foedtFoer1943" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="forLavtTidligUttak">
+        <soap:fault name="forLavtTidligUttak" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ugyldigInput">
+        <soap:fault name="ugyldigInput" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <soap:operation soapAction="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/SimulerePensjon_v1/pingRequest"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SimulerePensjon_v1">
+    <wsdl:port name="SimulerePensjon_v1Port" binding="tns:SimulerePensjon_v1Binding">
+      <soap:address location="http://localhost:9080/ekstern/simulerePensjon_v1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
