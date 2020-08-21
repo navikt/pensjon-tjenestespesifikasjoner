@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Binding" targetNamespace="http://nav.no/domene/pensjon/tjenester/iverksetting/v2/Binding/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://nav.no/domene/pensjon/tjenester/iverksetting/v2/Binding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:iverksetting="http://nav.no/domene/pensjon/tjenester/iverksetting/v2">
+  <wsdl:import namespace="http://nav.no/domene/pensjon/tjenester/iverksetting/v2" location="../iverksetting.wsdl">
+    </wsdl:import>
+  <wsdl:binding name="IverksettingBinding" type="iverksetting:Iverksetting">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaw:UsingAddressing/>
+    <wsdl:operation name="behandleOppdragKvittering">
+      <soap:operation soapAction="http://nav.no/domene/pensjon/tjenester/iverksetting/v2/Iverksetting/behandleOppdragKvitteringRequest"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="genererOppdragsmelding">
+      <soap:operation soapAction="http://nav.no/domene/pensjon/tjenester/iverksetting/v2/Iverksetting/genererOppdragsmeldingRequest"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iverksettTilbakekrevingsvedtak">
+      <soap:operation soapAction="http://nav.no/domene/pensjon/tjenester/iverksetting/v2/Iverksetting/iverksettTilbakekrevingsvedtakRequest"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="uventetFeilITilbakekreving">
+        <soap:fault name="uventetFeilITilbakekreving" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Iverksetting">
+    <wsdl:port name="IverksettingPort" binding="tns:IverksettingBinding">
+      <soap:address location="http://localhost:9080/pensjon-tjeneste-iverksetting_v2Web/sca/IverksettingWSEXP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

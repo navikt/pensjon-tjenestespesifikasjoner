@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/meldinger" xmlns:informasjon="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/informasjon" xmlns:meldinger="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/meldinger">
+  <xsd:import namespace="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/informasjon" schemaLocation="../informasjon/informasjon.xsd"/>
+  <xsd:complexType name="HentSimulertPensjonResponse">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" name="simulertFleksibelAlderspensjonPeriode" type="informasjon:SimulertFleksibelAlderspensjonPeriode"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="simulertAfpPrivatPeriode" type="informasjon:SimulertAfpPrivatPeriode"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HentSimulertPensjonRequest">
+    <xsd:sequence>
+      <xsd:element name="personident" type="informasjon:Identifikator">
+        <xsd:annotation>
+          <xsd:documentation>Fnr/dnr til brukeren det skal simuleres for</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="inntektFoerUttak" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Inntekt før første uttak av alderspensjon</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="antallInntektsaarEtterFulltUttak" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Antall år det forventes at bruker vil ha inntekt etter helt (100%) uttak av alderspensjon</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="foersteUttak" type="informasjon:Uttaksperiode">
+        <xsd:annotation>
+          <xsd:documentation>Informasjon om første uttaksperiode. Se egen tabell.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="heltUttak" type="informasjon:Uttaksperiode">
+        <xsd:annotation>
+          <xsd:documentation>Informasjon om perioden med helt uttak. Se egen tabell.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="sivilstandVedPensjonering" type="informasjon:SivilstandVedPensjonering">
+        <xsd:annotation>
+          <xsd:documentation>Sivilstand bruker vil ha ved pensjoneringstidspunktet (første uttak). Gyldige verdier:
+
+
+Kode
+
+   
+
+Dekode
+
+
+UGIF
+
+   
+
+Ugift
+
+
+SAMB
+
+   
+
+Samboer
+
+
+GIFT
+
+   
+
+Gift
+
+
+GLAD
+
+   
+
+Gift, lever adskilt
+
+
+REPA
+
+   
+
+Registrert partner
+
+
+PLAD
+
+   
+
+Registrert partner, lever adskilt
+
+
+SEPR
+
+   
+
+Separert
+
+
+SEPA
+
+   
+
+Separert partner
+
+
+SKIL
+
+   
+
+Skilt
+
+
+SKPA
+
+   
+
+Skilt partner
+
+
+GJSA
+
+   
+
+Gjenlevende samboer
+
+
+GJES
+
+   
+
+Gjenlevende etter samlivsbrudd
+
+
+ENKE
+
+   
+
+Enke/-mann
+
+
+GJPA
+
+   
+
+Gjenlevende partner</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="aarIUtlandetEtter16" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Antall år bruker har bodd i utlandet etter fylte 16 år før pensjoneringstidspunktet (første uttak).</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="harEpsPensjon" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>Angir om brukerens ektefelle/partner/samboer kommer til å motta pensjon fra folketrygden eller AFP</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="harEpsPensjonsgivendeInntektOver2G" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>Angir om brukerens ektefelle/partner/samboer kommer til å ha inntekt (inkludert kapitalinntekt) over 2G</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="skalSimulereAfpPrivat" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>Angir om det skal simuleres alderspensjon med AFP Privat (eller kun alderspensjon)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

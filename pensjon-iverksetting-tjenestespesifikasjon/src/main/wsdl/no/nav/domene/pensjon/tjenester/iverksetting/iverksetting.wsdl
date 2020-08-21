@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="iverksetting" targetNamespace="http://nav.no/domene/pensjon/tjenester/iverksetting/v2" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/domene/pensjon/tjenester/iverksetting/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/domene/pensjon/tjenester/iverksetting/v2" xmlns:feil="http://nav.no/domene/pensjon/tjenester/iverksetting/feil/v2" xmlns:meldinger="http://nav.no/domene/pensjon/tjenester/iverksetting/meldinger/v2">
+      <xsd:import namespace="http://nav.no/domene/pensjon/tjenester/iverksetting/feil/v2" schemaLocation="feil/feil.xsd"/>
+      <xsd:import namespace="http://nav.no/domene/pensjon/tjenester/iverksetting/meldinger/v2" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="behandleOppdragKvittering">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:BehandleOppdragKvitteringRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="behandleOppdragKvitteringResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:BehandleOppdragKvitteringResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="genererOppdragsmelding">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:GenererOppdragsmeldingRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="genererOppdragsmeldingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:GenererOppdragsmeldingResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="iverksettTilbakekrevingsvedtak">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:IverksettTilbakekrevingsvedtakRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="iverksettTilbakekrevingsvedtakResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="iverksettTilbakekrevingsvedtakuventetFeilITilbakekreving" type="feil:UventetFeilITilbakekreving"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="genererOppdragsmeldingRequest">
+    <wsdl:part name="parameters" element="tns:genererOppdragsmelding">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="iverksettTilbakekrevingsvedtakRequest">
+    <wsdl:part name="parameters" element="tns:iverksettTilbakekrevingsvedtak">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="behandleOppdragKvitteringResponse">
+    <wsdl:part name="parameters" element="tns:behandleOppdragKvitteringResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="iverksettTilbakekrevingsvedtak_uventetFeilITilbakekreving">
+    <wsdl:part name="uventetFeilITilbakekreving" element="tns:iverksettTilbakekrevingsvedtakuventetFeilITilbakekreving">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="behandleOppdragKvitteringRequest">
+    <wsdl:part name="parameters" element="tns:behandleOppdragKvittering">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="genererOppdragsmeldingResponse">
+    <wsdl:part name="parameters" element="tns:genererOppdragsmeldingResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="iverksettTilbakekrevingsvedtakResponse">
+    <wsdl:part name="parameters" element="tns:iverksettTilbakekrevingsvedtakResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Iverksetting">
+    <wsdl:operation name="behandleOppdragKvittering">
+<wsdl:documentation>&lt;p&gt;&lt;/p&gt; mapping/ESBD0107_001_behandleOppdragKvittering_v1_mapping.xls </wsdl:documentation>
+      <wsdl:input message="tns:behandleOppdragKvitteringRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:behandleOppdragKvitteringResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="genererOppdragsmelding">
+<wsdl:documentation>&lt;p&gt;&lt;/p&gt; </wsdl:documentation>
+      <wsdl:input message="tns:genererOppdragsmeldingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:genererOppdragsmeldingResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iverksettTilbakekrevingsvedtak">
+      <wsdl:input message="tns:iverksettTilbakekrevingsvedtakRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:iverksettTilbakekrevingsvedtakResponse">
+    </wsdl:output>
+      <wsdl:fault name="uventetFeilITilbakekreving" message="tns:iverksettTilbakekrevingsvedtak_uventetFeilITilbakekreving">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/informasjon/behandleUforetrygdEtteroppgjor" version="1.0.0" xmlns:behandleUforetrygdEtteroppgjor="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/informasjon/behandleUforetrygdEtteroppgjor">
+  <xsd:complexType name="Utvidelse">
+    <xsd:sequence>
+      <xsd:any maxOccurs="unbounded" minOccurs="0" namespace="##any"/>
+    </xsd:sequence>
+    <xsd:anyAttribute namespace="##any"/>
+  </xsd:complexType>
+  <xsd:complexType name="EndringsInfoUtvidelse1">
+    <xsd:complexContent>
+      <xsd:extension base="behandleUforetrygdEtteroppgjor:Utvidelse"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="EndringsInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="endretAvId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endretAvNavn" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endretAvEnhetId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endretAvEnhetNavn" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="opprettetAvId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="opprettetAvEnhetId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="opprettetAvEnhetNavn" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="opprettetAvNavn" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="endretDato" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="opprettetDato" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="kildeId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="kildeNavn" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="utvidelse" type="behandleUforetrygdEtteroppgjor:EndringsInfoUtvidelse1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="KontrollpunktUtvidelse1">
+    <xsd:complexContent>
+      <xsd:extension base="behandleUforetrygdEtteroppgjor:Utvidelse"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Kontrollpunkt">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="kontrollpunktId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik identifikasjon av et kontrollpunkt.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="kontrollpunktTypeKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Kode som klassifiserer kontrollpunktet på bakgrunn av hvilken kontekst det er opprettet i. Se PEN kodeverk, arkfane K_KONTROLLPUNKT_T for gyldige koder</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="kontrollpunktStatusKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Kode som angir hvilken status kontrollpunktet har. Se PEN kodeverk, arkfane K_KONTROLLPUNKT_S for gyldige koder</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="kritisk" nillable="true" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>True hvis kontrollpunktet er kritisk, false eller.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="sakId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Saken kontrollpunktet obligatorisk relaterer seg til.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="kravId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Kravet kontrollpunktet eventuelt relaterer seg til.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="endringsInfo" type="behandleUforetrygdEtteroppgjor:EndringsInfo">
+        <xsd:annotation>
+          <xsd:documentation>Objekt som inneholder informasjon om hvem som har opprettet/endret objektet og når objektet er opprettet/endret</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="utvidelse" type="behandleUforetrygdEtteroppgjor:KontrollpunktUtvidelse1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OpprettOppgave">
+    <xsd:sequence>
+      <xsd:element name="aktivFra" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Når oppgaven er aktiv fra.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ansvarligEnhetId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Hvilken enhet (id), eller gruppe innen enhet, som er ansvarlig for oppgaven</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="beskrivelse" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Beskrivelse tilhørende oppgavetype-koden, se dokumentasjon for oppgaveType.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fagomradeKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Hvilket fagområde oppgaven er knyttet til, samt hvilken underkategori den tilhører. ESB er ikke master for fagområdekoder, se FGSAK for en oppdatert oversikt</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="lest" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>Om oppgaven er lest eller ikke. Ved opprettelse, skal vi få false fra skjermbildet.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="oppgavetypeKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Hvilken type oppgaven er. ESB er ikke master for fagområdekoder, se FGSAK for en oppdatert oversikt.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="prioritetKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>ESB er ikke master for fagområdekoder, se FGSAK for en oppdatert oversikt.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="aktivTil" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Hvilken frist som er satt for å utføre (lukke) oppgaven</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="ansvarligId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Hvilken applikasjonsbruker som er ansvarlig for å utføre oppgaven</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="brukerId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik id til brukeren, kan være fnr, orgnr, etc.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="brukertypeKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Hvilken type bruker</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="dokumentId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>ID til et dokument</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="henvendelseId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Id på Hendelse knyttet til Oppgave</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="kravId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>En sak kan ha mange kravId'er koblet til seg,men det er ingen kobling mellom disse i GSAK.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="mappeId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unik id til Mappen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="mottattDato" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Datoen dokumentet ble mottatt</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="normDato" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Dato som angir normert behandlingstid, kan ikke endres.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="oppfolging" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Hvilken oppfølging som er gjort på oppgaven i form av et beskrivelsesfelt</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="revurderingstype" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Hvilken revurderingstype oppgaven er. Se GSAK for oppdatert kodeverk.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="saksnummer" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Id til en Sak</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="skannetDato" type="xsd:date">
+        <xsd:annotation>
+          <xsd:documentation>Datoen dokumentet ble skannet</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="soknadsId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>SøknadsId</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="underkategoriKode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Underkategori til valgt fagområde. ESB er ikke master for fagområdekoder, se FGSAK for en oppdatert oversikt.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

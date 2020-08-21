@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="tilbakekrevingHendelse" targetNamespace="http://nav.no/domene/pensjon/tjenester/tilbakekrevingHendelse/v2" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/domene/pensjon/tjenester/tilbakekrevingHendelse/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/domene/pensjon/tjenester/tilbakekrevingHendelse/v2" xmlns:meldinger="http://nav.no/domene/pensjon/tjenester/tilbakekrevingHendelse/meldinger/v2">
+      <xsd:import namespace="http://nav.no/domene/pensjon/tjenester/tilbakekrevingHendelse/meldinger/v2" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="tilbakekrevingsgrunnlagOpprettet">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:TilbakekrevingsgrunnlagOpprettetRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="tilbakekrevingsgrunnlagOpprettetResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="tilbakekrevingsgrunnlagOpprettetRequest">
+    <wsdl:part name="parameters" element="tns:tilbakekrevingsgrunnlagOpprettet">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tilbakekrevingsgrunnlagOpprettetResponse">
+    <wsdl:part name="parameters" element="tns:tilbakekrevingsgrunnlagOpprettetResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TilbakekrevingHendelse">
+    <wsdl:operation name="tilbakekrevingsgrunnlagOpprettet">
+<wsdl:documentation>&lt;p&gt;Operasjonen tar imot et tilbakekrevingsgrunnlag, som opprinnelig ble sendt fra tilbakekrevingskomponenten (TBK), og videresender dette til PEN for behandling. Tjenesten må også sikre pålitelig levering av melding inntil det punkt hvor meldingen er levert i PEN.&lt;/p&gt; </wsdl:documentation>
+      <wsdl:input message="tns:tilbakekrevingsgrunnlagOpprettetRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:tilbakekrevingsgrunnlagOpprettetResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

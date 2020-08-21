@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="pensjonsvedtakSamordning" targetNamespace="http://nav.no/tjeneste/virksomhet/pensjonsvedtaksamordning/v1" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/tjeneste/virksomhet/pensjonsvedtaksamordning/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/tjeneste/virksomhet/pensjonsvedtaksamordning/v1" xmlns:meldinger="http://nav.no/tjeneste/virksomhet/pensjonsvedtaksamordning/v1/meldinger">
+      <xsd:import namespace="http://nav.no/tjeneste/virksomhet/pensjonsvedtaksamordning/v1/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="ping">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pingResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentVedtak">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:HentVedtakRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentVedtakResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" type="meldinger:HentVedtakResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentVedtakListe">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:HentVedtakListeRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentVedtakListeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" type="meldinger:HentVedtakListeResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="hentVedtakListeResponse">
+    <wsdl:part name="parameters" element="tns:hentVedtakListeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hentVedtakListeRequest">
+    <wsdl:part name="parameters" element="tns:hentVedtakListe">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pingRequest">
+    <wsdl:part name="parameters" element="tns:ping">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part name="parameters" element="tns:pingResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hentVedtakRequest">
+    <wsdl:part name="parameters" element="tns:hentVedtak">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hentVedtakResponse">
+    <wsdl:part name="parameters" element="tns:hentVedtakResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PensjonsvedtakSamordning_v1">
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:pingResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hentVedtak">
+      <wsdl:input message="tns:hentVedtakRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:hentVedtakResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hentVedtakListe">
+      <wsdl:input message="tns:hentVedtakListeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:hentVedtakListeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

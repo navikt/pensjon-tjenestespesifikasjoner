@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nav.no/tjeneste/virksomhet/barnetillegg/v1/meldinger" xmlns:informasjon="http://nav.no/tjeneste/virksomhet/barnetillegg/v1/informasjon" xmlns:meldinger="http://nav.no/tjeneste/virksomhet/barnetillegg/v1/meldinger">
+  <xsd:import namespace="http://nav.no/tjeneste/virksomhet/barnetillegg/v1/informasjon" schemaLocation="../informasjon/informasjon.xsd"/>
+  <xsd:complexType name="HentBarnetilleggListeResponse">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="barnetilleggListe" type="informasjon:Barnetillegg">
+        <xsd:annotation>
+          <xsd:documentation>Liste over barnetillegg</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HentBarnetilleggListeRequest">
+    <xsd:sequence>
+      <xsd:element name="mottaker" type="informasjon:Bruker">
+        <xsd:annotation>
+          <xsd:documentation>Mottaker av barnetillegget</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="periode" type="informasjon:Periode">
+        <xsd:annotation>
+          <xsd:documentation>Perioden det ønskes informasjon om barnetillegg fra</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="returnerFellesbarn" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>Flagger om barnetillegg relatert til fellesbarn skal inkluderes</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="returnerSaerkullsbarn" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>Flagger om barnetillegg relatert til særkullsbarn skal inkluderes</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

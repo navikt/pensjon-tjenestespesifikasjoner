@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Binding" targetNamespace="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/Binding" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/Binding" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl_1="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:import namespace="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1" location="behandleUforetrygdEtteroppgjor.wsdl">
+    </wsdl:import>
+  <wsdl:binding name="BehandleUforetrygdEtteroppgjor_v1Binding" type="wsdl_1:BehandleUforetrygdEtteroppgjor_v1">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsaw:UsingAddressing/>
+    <wsdl:operation name="opprettEtteroppgjorskravUT">
+      <soap:operation soapAction="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/BehandleUforetrygdEtteroppgjor_v1/opprettEtteroppgjorskravUTRequest"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="kravopprettelseIkkeTillatt">
+        <soap:fault name="kravopprettelseIkkeTillatt" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="vurderIfuMotInntekt">
+      <soap:operation soapAction="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/BehandleUforetrygdEtteroppgjor_v1/vurderIfuMotInntektRequest"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vurderOgHandterEndringerEtteroppgjor">
+      <soap:operation soapAction="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/BehandleUforetrygdEtteroppgjor_v1/vurderOgHandterEndringerEtteroppgjorRequest"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klargjorForManueltEtteroppgjorUT">
+      <soap:operation soapAction="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/BehandleUforetrygdEtteroppgjor_v1/klargjorForManueltEtteroppgjorUTRequest"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <soap:operation soapAction="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/BehandleUforetrygdEtteroppgjor_v1/pingRequest"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="forberedTilbakekrevingEtteroppgjorUT">
+      <soap:operation soapAction="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/BehandleUforetrygdEtteroppgjor_v1/forberedTilbakekrevingEtteroppgjorUTRequest"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BehandleUforetrygdEtteroppgjor_v1">
+    <wsdl:port name="BehandleUforetrygdEtteroppgjor_v1Port" binding="tns:BehandleUforetrygdEtteroppgjor_v1Binding">
+      <soap:address location="http://localhost:9080/pensjon-tjeneste-behandleUforetrygdEtteroppgjor_v1Web/sca/BehandleUforetrygdEtteroppgjor"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

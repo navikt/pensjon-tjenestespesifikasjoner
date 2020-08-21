@@ -43,15 +43,23 @@
     </scm>
 
 	<modules>
+        <module>ekstern-simulerePensjon-v1-tjenestespesifikasjon</module>
+        <module>nav-barnetillegg-v1-tjenestespesifikasjon</module>
+        <module>nav-fim-pensjonsvedtaksamordning-v1-tjenestespesifikasjon</module>
+        <module>nav-pensjonSak-v1-tjenestespesifikasjon</module>
 		<module>pensjon-behandleAutomatiskOmregning-tjenestespesifikasjon</module>
 		<module>pensjon-behandleEndretForventetArbeidsinntekt-tjenestespesifikasjon</module>
 		<module>pensjon-behandleEtteroppgjorUT-tjenestespesifikasjon</module>
 		<module>pensjon-behandleSak-v2-tjenestespesifikasjon</module>
 		<module>pensjon-behandleUforetrygd-v2-tjenestespesifikasjon</module>
+        <module>pensjon-behandleUforetrygdEtteroppgjor-tjenestespesifikasjon</module>
         <module>pensjon-consumer-fullmakt-v1</module>
+        <module>pensjon-erUngUfor-tjenestespesifikasjon</module>
+        <module>pensjon-iverksetting-tjenestespesifikasjon</module>
 		<module>pensjon-konverterTilUforetrygd-tjenestespesifikasjon</module>
         <module>pensjon-krav-v1-tjenestespesifikasjon</module>
         <module>pensjon-rekonverterUPTilUT-tjenestespesifikasjon</module>
+        <module>pensjon-tilbakekrevingHendelse-tjenestespesifikasjon</module>
         <module>pensjon-vedtak-v1-tjenestespesifikasjon</module>
         <module>pensjon-vedtak-v2-tjenestespesifikasjon</module>
 		<module>pensjon-vedtaksbrev-tjenestespesifikasjon</module>

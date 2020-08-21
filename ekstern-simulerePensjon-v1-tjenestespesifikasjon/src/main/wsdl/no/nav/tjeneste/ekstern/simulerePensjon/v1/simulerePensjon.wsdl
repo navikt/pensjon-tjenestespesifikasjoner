@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="simulerePensjon" targetNamespace="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/" xmlns:feil="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/feil" xmlns:meldinger="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/meldinger">
+      <xsd:import namespace="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/feil" schemaLocation="feil/feil.xsd"/>
+      <xsd:import namespace="http://nav.no/tjeneste/ekstern/simulerePensjon/v1/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="hentSimulertPensjon">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:HentSimulertPensjonRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentSimulertPensjonResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:HentSimulertPensjonResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hentSimulertPensjonfoedtFoer1943" type="feil:FoedtFoer1943"/>
+      <xsd:element name="hentSimulertPensjonforKortTrygdetid" type="feil:ForKortTrygdetid"/>
+      <xsd:element name="hentSimulertPensjonugyldigInput" type="feil:UgyldigInput"/>
+      <xsd:element name="hentSimulertPensjonforLavtTidligUttak" type="feil:ForLavtTidligUttak"/>
+      <xsd:element name="ping">
+        <xsd:complexType>
+          <xsd:sequence>
+            
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="hentSimulertPensjon_foedtFoer1943">
+    <wsdl:part name="foedtFoer1943" element="tns:hentSimulertPensjonfoedtFoer1943">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hentSimulertPensjon_ugyldigInput">
+    <wsdl:part name="ugyldigInput" element="tns:hentSimulertPensjonugyldigInput">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hentSimulertPensjon_forLavtTidligUttak">
+    <wsdl:part name="forLavtTidligUttak" element="tns:hentSimulertPensjonforLavtTidligUttak">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hentSimulertPensjonRequest">
+    <wsdl:part name="parameters" element="tns:hentSimulertPensjon">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hentSimulertPensjon_forKortTrygdetid">
+    <wsdl:part name="forKortTrygdetid" element="tns:hentSimulertPensjonforKortTrygdetid">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hentSimulertPensjonResponse">
+    <wsdl:part name="parameters" element="tns:hentSimulertPensjonResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part name="parameters" element="tns:pingResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pingRequest">
+    <wsdl:part name="parameters" element="tns:ping">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SimulerePensjon_v1">
+    <wsdl:operation name="hentSimulertPensjon">
+      <wsdl:input message="tns:hentSimulertPensjonRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:hentSimulertPensjonResponse">
+    </wsdl:output>
+      <wsdl:fault name="forKortTrygdetid" message="tns:hentSimulertPensjon_forKortTrygdetid">
+    </wsdl:fault>
+      <wsdl:fault name="foedtFoer1943" message="tns:hentSimulertPensjon_foedtFoer1943">
+    </wsdl:fault>
+      <wsdl:fault name="forLavtTidligUttak" message="tns:hentSimulertPensjon_forLavtTidligUttak">
+    </wsdl:fault>
+      <wsdl:fault name="ugyldigInput" message="tns:hentSimulertPensjon_ugyldigInput">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:pingResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="behandleUforetrygdEtteroppgjor" targetNamespace="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1" xmlns:feil="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/feil" xmlns:meldinger="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/meldinger">
+      <xsd:import namespace="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/feil" schemaLocation="feil/feil.xsd"/>
+      <xsd:import namespace="http://nav.no/domene/pensjon/tjenester/behandleUforetrygdEtteroppgjor/v1/meldinger" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="opprettEtteroppgjorskravUT">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:OpprettEtteroppgjorskravUTRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="opprettEtteroppgjorskravUTResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:OpprettEtteroppgjorskravUTResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="opprettEtteroppgjorskravUTkravopprettelseIkkeTillatt" type="feil:KravopprettelseIkkeTillatt"/>
+      <xsd:element name="vurderIfuMotInntekt">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:VurderIfuMotInntektRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vurderIfuMotInntektResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:VurderIfuMotInntektResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vurderOgHandterEndringerEtteroppgjor">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:VurderOgHandterEndringerEtteroppgjorRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="vurderOgHandterEndringerEtteroppgjorResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:VurderOgHandterEndringerEtteroppgjorResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="klargjorForManueltEtteroppgjorUT">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:KlargjorForManueltEtteroppgjorUTRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="klargjorForManueltEtteroppgjorUTResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:KlargjorForManueltEtteroppgjorUTResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ping">
+        <xsd:complexType>
+          <xsd:sequence>
+            
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="forberedTilbakekrevingEtteroppgjorUT">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:ForberedTilbakekrevingEtteroppgjorUTRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="forberedTilbakekrevingEtteroppgjorUTResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:ForberedTilbakekrevingEtteroppgjorUTResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="pingResponse">
+    <wsdl:part name="parameters" element="tns:pingResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vurderIfuMotInntektResponse">
+    <wsdl:part name="parameters" element="tns:vurderIfuMotInntektResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pingRequest">
+    <wsdl:part name="parameters" element="tns:ping">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="forberedTilbakekrevingEtteroppgjorUTResponse">
+    <wsdl:part name="parameters" element="tns:forberedTilbakekrevingEtteroppgjorUTResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="opprettEtteroppgjorskravUTResponse">
+    <wsdl:part name="parameters" element="tns:opprettEtteroppgjorskravUTResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vurderIfuMotInntektRequest">
+    <wsdl:part name="parameters" element="tns:vurderIfuMotInntekt">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="opprettEtteroppgjorskravUT_kravopprettelseIkkeTillatt">
+    <wsdl:part name="kravopprettelseIkkeTillatt" element="tns:opprettEtteroppgjorskravUTkravopprettelseIkkeTillatt">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vurderOgHandterEndringerEtteroppgjorRequest">
+    <wsdl:part name="parameters" element="tns:vurderOgHandterEndringerEtteroppgjor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klargjorForManueltEtteroppgjorUTResponse">
+    <wsdl:part name="parameters" element="tns:klargjorForManueltEtteroppgjorUTResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="opprettEtteroppgjorskravUTRequest">
+    <wsdl:part name="parameters" element="tns:opprettEtteroppgjorskravUT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="forberedTilbakekrevingEtteroppgjorUTRequest">
+    <wsdl:part name="parameters" element="tns:forberedTilbakekrevingEtteroppgjorUT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vurderOgHandterEndringerEtteroppgjorResponse">
+    <wsdl:part name="parameters" element="tns:vurderOgHandterEndringerEtteroppgjorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klargjorForManueltEtteroppgjorUTRequest">
+    <wsdl:part name="parameters" element="tns:klargjorForManueltEtteroppgjorUT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BehandleUforetrygdEtteroppgjor_v1">
+    <wsdl:operation name="opprettEtteroppgjorskravUT">
+<wsdl:documentation>Oppretter nytt krav for Etteroppgjør. Dette kan være enten et vurderingskrav eller ett oppgjørskrav.
+
+Et vurderingskrav kan ikke sendes til oppdrag, og vil ikke sperre for opprettelse av nye krav på saken.
+Et oppgjørskrav kan sendes til oppdrag, og vil sperre for opprettelse av nye krav på saken.
+
+Dersom det er et oppgjørskrav som opprettes, vil et eventuelt vurderingskrav samtidig bli lukket i denne operasjonen. 
+
+Operasjonen kaller PROPEN1711. </wsdl:documentation>
+      <wsdl:input message="tns:opprettEtteroppgjorskravUTRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:opprettEtteroppgjorskravUTResponse">
+    </wsdl:output>
+      <wsdl:fault name="kravopprettelseIkkeTillatt" message="tns:opprettEtteroppgjorskravUT_kravopprettelseIkkeTillatt">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="vurderIfuMotInntekt">
+<wsdl:documentation>Vurderer om bruker har tjent mer enn inntektstaket, som er satt ift IFU, og bruker samtidig har mottatt UT. 
+
+Operasjonen kaller PROPEN1705. </wsdl:documentation>
+      <wsdl:input message="tns:vurderIfuMotInntektRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:vurderIfuMotInntektResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vurderOgHandterEndringerEtteroppgjor">
+<wsdl:documentation>Operasjonen sjekker om det har skjedd endringer på etteroppgjørsgrunnlaget i tiden etter at kravet ble opprettet.
+
+Operasjonen kaller PROPEN1707. </wsdl:documentation>
+      <wsdl:input message="tns:vurderOgHandterEndringerEtteroppgjorRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:vurderOgHandterEndringerEtteroppgjorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klargjorForManueltEtteroppgjorUT">
+<wsdl:documentation>Operasjonen kalles for tilfeller hvor videre automatisk behandling ikke er mulig, og kravet derfor må overføres til manuell behandling.
+
+Operasjonen returnerer en oppgave som er klar for opprettelse i Gosys, hvor en saksbehandler kan ta tak i oppgaven.
+
+Et kall til denne operasjonen må følges opp med et kall til Oppgavebehandling.opprettOppgave /4/. 
+
+Operasjonen kaller PROPEN1712. </wsdl:documentation>
+      <wsdl:input message="tns:klargjorForManueltEtteroppgjorUTRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:klargjorForManueltEtteroppgjorUTResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:pingResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="forberedTilbakekrevingEtteroppgjorUT">
+<wsdl:documentation>Operasjonen oppretter et tomt vedtak, gjennomfører en simulering og lagrer vedtaket med beregningsresultatet på kravet.
+
+Operasjonen kaller PROPEN1709 - ForberedTilbakekrevingEtteroppgjorUT. </wsdl:documentation>
+      <wsdl:input message="tns:forberedTilbakekrevingEtteroppgjorUTRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:forberedTilbakekrevingEtteroppgjorUTResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
