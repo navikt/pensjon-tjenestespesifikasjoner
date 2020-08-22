@@ -8,7 +8,7 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>pensjon-erUngUfor-tjenestespesifikasjon</artifactId>
+	<artifactId>pensjon-erUngUfor-tjenestespesifikasjon-ekstern</artifactId>
 
 	<build>
 		<plugins>
@@ -25,7 +25,7 @@
 							<wsdlFiles>
 								<wsdlFile>v1/Binding.wsdl</wsdlFile>
 							</wsdlFiles>
-							<wsdlDirectory>${wsdl.directory}/no/nav/domene/pensjon/tjenester/erUngUfor</wsdlDirectory>
+							<wsdlDirectory>${wsdl.directory}/no/nav/ekstern/pensjon/tjenester/erUngUfor</wsdlDirectory>
 							<sourceDestDir>target/generated-sources</sourceDestDir>
 						</configuration>
 					</execution>

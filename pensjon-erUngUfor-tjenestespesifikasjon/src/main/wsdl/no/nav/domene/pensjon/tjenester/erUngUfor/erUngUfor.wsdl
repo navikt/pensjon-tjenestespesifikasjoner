@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="erUngUfor" targetNamespace="http://nav.no/domene/pensjon/tjenester/erUngUfor/v1" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://nav.no/domene/pensjon/tjenester/erUngUfor/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nav.no/domene/pensjon/tjenester/erUngUfor/v1" xmlns:feil="http://nav.no/domene/pensjon/tjenester/erUngUfor/feil/v1" xmlns:meldinger="http://nav.no/domene/pensjon/tjenester/erUngUfor/meldinger/v1">
+      <xsd:import namespace="http://nav.no/domene/pensjon/tjenester/erUngUfor/feil/v1" schemaLocation="feil/feil.xsd"/>
+      <xsd:import namespace="http://nav.no/domene/pensjon/tjenester/erUngUfor/meldinger/v1" schemaLocation="meldinger/meldinger.xsd"/>
+      <xsd:element name="erUngUfor">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" type="meldinger:ErUngUforRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="erUngUforResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="response" type="meldinger:ErUngUforResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="erUngUforpersonIkkeFunnet" type="feil:PersonIkkeFunnet"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="erUngUforResponse">
+    <wsdl:part name="parameters" element="tns:erUngUforResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="erUngUfor_personIkkeFunnet">
+    <wsdl:part name="personIkkeFunnet" element="tns:erUngUforpersonIkkeFunnet">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="erUngUforRequest">
+    <wsdl:part name="parameters" element="tns:erUngUfor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ErUngUfor">
+    <wsdl:operation name="erUngUfor">
+<wsdl:documentation>&lt;p&gt;Operasjonen tilbyr konsument å spørre på et fnr for å få informasjon om personen faller under kategorien &quot;Ung Ufør&quot; i PESYS. &lt;/p&gt;&lt;p&gt;Tjenesten tar ikke hensyn til at personen har byttet fnr og svarer kun på nyeste fnr&lt;/p&gt; </wsdl:documentation>
+      <wsdl:input message="tns:erUngUforRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:erUngUforResponse">
+    </wsdl:output>
+      <wsdl:fault name="personIkkeFunnet" message="tns:erUngUfor_personIkkeFunnet">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
