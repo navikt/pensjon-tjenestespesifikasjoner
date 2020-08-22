@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+=================================================================
+	Denne filen er en del av
+	Norsk Pensjons web service kontrakter for NAV versjon 2.0
+=================================================================
+-->
+
+<xs:schema targetNamespace="http://norskpensjon.no/api/pensjon/V2_0/typer"
+           xmlns:tns="http://norskpensjon.no/api/pensjon/V2_0/typer"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:include schemaLocation="privatpensjonTyper.xsd"/>
+
+	<!-- Kan vurdere å skippe hele skjema -->
+	<xs:element name="rettighetshaver" type="tns:Rettighetshaver"/>
+
+	<xs:complexType name="Rettighetshaver">
+		<xs:sequence>
+			<xs:element name="foedselsnummer" type="tns:Fnr"/>
+			<xs:element name="aarligInntektFoerUttak" type="tns:Beloep"/>
+			<xs:element name="uttaksperiode" type="tns:Uttaksperiode" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="antallInntektsaarEtterUttak" type="tns:Antall"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="privatPensjonsrettigheter" type="tns:PrivatPensjonsrettigheter"/>
+
+    <xs:complexType name="PrivatPensjonsrettigheter">
+		<xs:sequence>
+			<xs:element name="privatAlderRettigheter" type="tns:PrivatAlderRettighet" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="utilgjengeligeSelskap" type="tns:UtilgjengeligSelskap" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PrivatAlderRettighet">
+		<xs:sequence>
+			<xs:element name="produktbetegnelse" type="tns:Produktbetegnelse"/>
+			<xs:element name="kategori" type="tns:Kategori"/>
+			<xs:element name="merknad" type="tns:Merknad" minOccurs="0"/>
+			<xs:element name="startAlder" type="tns:Alder"/>
+			<xs:element name="sluttAlder" minOccurs="0" type="tns:Alder"/>
+			<xs:element name="utbetalingsperioder" type="tns:Utbetalingsperiode" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- Ordninger under utbetaling skal ikke sendes -->
+			<xs:element name="aarsakManglendeGradering" minOccurs="0" type="tns:AarsakManglendeGradering"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="Kategori">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ytelsesbasertInviduell"/>
+			<xs:enumeration value="ytelsesbasertKollektiv"/>
+			<xs:enumeration value="innskuddsbasertInviduell"/>
+			<xs:enumeration value="innskuddsbasertKollektiv"/>
+			<xs:enumeration value="hybridKollektiv"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AarsakManglendeGradering">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+    <xs:complexType name="UtilgjengeligSelskap">
+		<xs:sequence>
+            <xs:element name="navn" type="tns:Selskapsnavn"/>
+            <xs:element name="heltUtilgjengelig" type="xs:boolean"/>
+            <xs:element name="antallManglendeRettigheter" type="tns:Antall" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="requestTimedOut" type="tns:RequestTimedOut"/>
+	<xs:element name="serviceUnavailable" type="tns:ServiceUnavailable"/>
+	<xs:element name="notAuthorized" type="tns:NotAuthorized"/>
+
+</xs:schema>

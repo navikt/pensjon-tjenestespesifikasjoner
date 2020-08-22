@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+=================================================================
+	Denne filen er en del av
+	Norsk Pensjons web service kontrakter for NAV versjon 2.0
+================================================================= 
+-->
+		   
+<xs:schema targetNamespace="http://norskpensjon.no/api/pensjon/V2_0/typer"
+		   xmlns:tns="http://norskpensjon.no/api/pensjon/V2_0/typer" 
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		   
+	<xs:include schemaLocation="simpletyper.xsd"/>
+	
+	<xs:annotation>
+		<xs:documentation>
+			En dekning/sparesaldo vil ha flere utbetalingsperioder hvis det er brudd i dekningen.
+			Utbetalingsperioder som er utløpt skal ikke leveres.
+			Utbetalingsperioder for en gitt dekning/sparesaldo skal ikke være overlappende i tid
+			For betalende avtaler gjelder: aarligUtbetaling skal være basert på at avtalte premier / innskudd betales fram til pensjonsalder 
+			(avtalt alder for start utbetaling)
+		</xs:documentation>
+	</xs:annotation>
+	
+	<xs:complexType name="Utbetalingsperiode">
+		<xs:sequence>
+			<xs:element name="startAlder" type="tns:Alder"/>
+			<xs:element name="startMaaned" type="tns:Maaned"/>
+			<!-- sluttAlder og sluttMaaned settes ikke hvis utbetalingen er livsvarig -->
+			<xs:element name="sluttAlder" minOccurs="0" type="tns:Alder"/>
+			<xs:element name="sluttMaaned" minOccurs="0" type="tns:Maaned"/>
+			<xs:element name="aarligUtbetaling" type="tns:Beloep"/>
+			<xs:element name="grad" type="tns:HelProsent"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

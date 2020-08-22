@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+=================================================================
+	Denne filen er en del av
+	Norsk Pensjons web service kontrakter for NAV versjon 2.0
+================================================================= 
+-->
+		   
+<xs:schema targetNamespace="http://norskpensjon.no/api/pensjon/V2_0/typer"
+		   xmlns:tns="http://norskpensjon.no/api/pensjon/V2_0/typer"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="simpletyper.xsd"/>
+	
+	<xs:annotation>
+		<xs:documentation>
+			Beskrivelse av feil som kan oppstaa paa tjenestesiden.
+		</xs:documentation>
+	</xs:annotation>
+	
+	<xs:simpleType name="UnknownId">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="RequestTimedOut">
+			<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ServiceUnavailable">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="NotAuthorized">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
+

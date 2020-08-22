@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+=================================================================
+	Denne filen er en del av
+	Norsk Pensjons web service kontrakter for NAV versjon 2.0
+================================================================= 
+-->
+		   
+<xs:schema targetNamespace="http://norskpensjon.no/api/pensjon/V2_0/typer"
+		   xmlns:tns="http://norskpensjon.no/api/pensjon/V2_0/typer" 
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		   
+	<xs:include schemaLocation="simpletyper.xsd"/>
+	
+	<xs:annotation>
+		<xs:documentation>
+			Definisjon av uttaksperiode, som inngår i requesten.
+		</xs:documentation>
+	</xs:annotation>
+	
+	<xs:complexType name="Uttaksperiode">
+		<xs:sequence>
+			<xs:element name="startAlder" type="tns:Alder"/>
+			<xs:element name="startMaaned" type="tns:Maaned"/>
+			<xs:element name="grad" type="tns:HelProsent"/>
+			<xs:element name="aarligInntekt" type="tns:Beloep"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

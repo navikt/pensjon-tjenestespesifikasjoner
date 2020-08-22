@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+=================================================================
+	Denne filen er en del av
+	Norsk Pensjons web service kontrakter for NAV versjon 2.0
+================================================================= 
+-->
+		   
+<xs:schema targetNamespace="http://norskpensjon.no/api/pensjon/V2_0/typer"
+           xmlns:tns="http://norskpensjon.no/api/pensjon/V2_0/typer" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	<xs:annotation>
+		<xs:documentation>
+			Definisjon av enkle typer som foedselsnummer, beloep, prosent, telefonnummer ...
+		</xs:documentation>
+	</xs:annotation>
+	
+	<xs:simpleType name="Fnr">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Beloep">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Antall">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Prosent">
+		<xs:restriction base="xs:double">
+			<xs:minExclusive value="0"/>
+			<xs:maxInclusive value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="HelProsent">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Alder">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+			<xs:maxExclusive value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Maaned">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Avkastningsgaranti">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ja"/>
+			<xs:enumeration value="nei"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Produktstatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="aktiv"/>
+			<xs:enumeration value="utmeldt"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Telefonnummer">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Epost">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Organisasjonsnummer">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Merknad">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Produktbetegnelse">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+    <xs:simpleType name="Url">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Avtalenummer">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Arbeidsgiver">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Kontaktperson">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Selskapsnavn">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>

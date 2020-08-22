@@ -54,6 +54,7 @@
 		<module>pensjon-behandleUforetrygd-v2-tjenestespesifikasjon</module>
         <module>pensjon-behandleUforetrygdEtteroppgjor-tjenestespesifikasjon</module>
         <module>pensjon-consumer-fullmakt-v1</module>
+        <module>pensjon-consumer-norskpensjon-privatpensjonsrettighetstjeneste</module>
         <module>pensjon-erUngUfor-tjenestespesifikasjon</module>
         <module>pensjon-iverksetting-tjenestespesifikasjon</module>
 		<module>pensjon-konverterTilUforetrygd-tjenestespesifikasjon</module>
