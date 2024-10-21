@@ -54,6 +54,7 @@
         <module>pensjon-vedtak-v1-tjenestespesifikasjon</module>
         <module>pensjon-vedtak-v2-tjenestespesifikasjon</module>
 		<module>pensjon-vedtaksbrev-tjenestespesifikasjon</module>
+		<module>ytelseskontrakt-v3-tjenestespesifikasjon</module>
 	</modules>
 
     <dependencies>
