@@ -8,7 +8,7 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>pensjon-tilbakekrevingHendelse-tjenestespesifikasjon</artifactId>
+	<artifactId>pensjon-tilbakekrevinghendelse-tjenestespesifikasjon</artifactId>
 
 	<build>
 		<plugins>

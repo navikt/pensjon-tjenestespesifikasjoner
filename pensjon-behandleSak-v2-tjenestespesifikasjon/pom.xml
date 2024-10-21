@@ -8,7 +8,7 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>pensjon-behandleSak-v2-tjenestespesifikasjon</artifactId>
+	<artifactId>pensjon-behandlesak-v2-tjenestespesifikasjon</artifactId>
 
 	<build>
 		<plugins>
