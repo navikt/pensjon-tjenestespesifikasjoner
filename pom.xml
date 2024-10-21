@@ -8,8 +8,8 @@
 	<url>https://github.com/navikt/pensjon-tjenestespesifikasjoner</url>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <wsdl.directory>src/main/wsdl</wsdl.directory>
     </properties>
@@ -44,29 +44,37 @@
 
 	<modules>
         <module>ekstern-simulerePensjon-v1-tjenestespesifikasjon</module>
-        <module>nav-barnetillegg-v1-tjenestespesifikasjon</module>
         <module>nav-fim-pensjonsvedtaksamordning-v1-tjenestespesifikasjon</module>
         <module>nav-pensjonSak-v1-tjenestespesifikasjon</module>
 		<module>pensjon-behandleAutomatiskOmregning-tjenestespesifikasjon</module>
-		<module>pensjon-behandleEndretForventetArbeidsinntekt-tjenestespesifikasjon</module>
-		<module>pensjon-behandleEtteroppgjorUT-tjenestespesifikasjon</module>
 		<module>pensjon-behandleSak-v2-tjenestespesifikasjon</module>
-		<module>pensjon-behandleUforetrygd-v2-tjenestespesifikasjon</module>
-        <module>pensjon-behandleUforetrygdEtteroppgjor-tjenestespesifikasjon</module>
-        <module>pensjon-consumer-fullmakt-v1</module>
         <module>pensjon-consumer-norskpensjon-privatpensjonsrettighetstjeneste</module>
-        <module>pensjon-erUngUfor-tjenestespesifikasjon</module>
-        <module>pensjon-erUngUfor-tjenestespesifikasjon-ekstern</module>
         <module>pensjon-iverksetting-tjenestespesifikasjon</module>
-		<module>pensjon-konverterTilUforetrygd-tjenestespesifikasjon</module>
-        <module>pensjon-krav-v1-tjenestespesifikasjon</module>
-        <module>pensjon-rekonverterUPTilUT-tjenestespesifikasjon</module>
         <module>pensjon-tilbakekrevingHendelse-tjenestespesifikasjon</module>
         <module>pensjon-vedtak-v1-tjenestespesifikasjon</module>
         <module>pensjon-vedtak-v2-tjenestespesifikasjon</module>
 		<module>pensjon-vedtaksbrev-tjenestespesifikasjon</module>
-        <module>pensjon-vurderUTOmregningVedInntektsendring-tjenestespesifikasjon</module>
 	</modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+            <version>4.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>4.0.3</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-ri</artifactId>
+            <version>4.0.3</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
 
     <build>
         <resources>
@@ -92,14 +100,13 @@
                     <version>3.3.0</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.jvnet.jax-ws-commons</groupId>
+                    <groupId>com.sun.xml.ws</groupId>
                     <artifactId>jaxws-maven-plugin</artifactId>
-                    <version>2.3.1-b20150201.1248</version>
+                    <version>4.0.3</version>
                     <configuration>
-                        <vmArgs>
-                            <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
-                        </vmArgs>
-                        <encoding>utf-8</encoding>
+                        <wsdlDirectory>${wsdl.directory}</wsdlDirectory>
+                        <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                        <extension>true</extension>
                     </configuration>
                 </plugin>
             </plugins>
