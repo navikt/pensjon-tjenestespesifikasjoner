@@ -49,6 +49,7 @@
         <module>behandlearbeidogaktivitetoppgave-v1-tjenestespesifikasjon</module>
         <module>dokumentproduksjon-v3-tjenestespesifikasjon</module>
         <module>ekstern-simulerePensjon-v1-tjenestespesifikasjon</module>
+        <module>melding-virksomhet-dokumentproduksjon</module>
         <module>nav-fim-pensjonsvedtaksamordning-v1-tjenestespesifikasjon</module>
         <module>nav-pensjonSak-v1-tjenestespesifikasjon</module>
 		<module>nav-system-os-simuler-fp-service-tjenestespesifikasjon</module>
