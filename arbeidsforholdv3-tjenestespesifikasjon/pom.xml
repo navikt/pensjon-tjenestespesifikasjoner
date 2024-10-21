@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>no.nav.tjenestespesifikasjoner.pensjon</groupId>
+        <artifactId>tjenestespesifikasjoner-pensjon</artifactId>
+        <version>0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>arbeidsforholdv3-tjenestespesifikasjon</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.threeten-jaxb</groupId>
+            <artifactId>threeten-jaxb-core</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <executions>
+                <execution>
+                    <goals>
+                        <goal>wsimport</goal>
+                    </goals>
+                    <configuration>
+                        <wsdlFiles>
+                            <wsdlFile>Binding.wsdl</wsdlFile>
+                        </wsdlFiles>
+                        <bindingFiles>
+                            <bindingFile>${project.basedir}/src/main/wsdl/arbeidsforholdv3/bindings.xml</bindingFile>
+                        </bindingFiles>
+                        <wsdlDirectory>${wsdl.directory}/no/nav/tjeneste/virksomhet/arbeidsforhold/v3</wsdlDirectory>
+                        <sourceDestDir>target/generated-sources</sourceDestDir>
+                    </configuration>
+                </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <scm>
+        <developerConnection>scm:git:git@github.com:navikt/pensjon-tjenestespesifikasjoner.git</developerConnection>
+        <connection>scm:git:git@github.com:navikt/pensjon-tjenestespesifikasjoner.git</connection>
+        <url>https://github.com/navikt/pensjon-tjenestespesifikasjoner</url>
+        <tag>HEAD</tag>
+    </scm>
+</project>
